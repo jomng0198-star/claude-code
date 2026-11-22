@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ورشة كلود كود | من المقدمة إلى التطبيق — مع المدربة هيله فهد</title>
-<meta name="description" content="ورشة كلود كود التطبيقية مع المدربة هيله فهد — مسار كامل من المقدمة إلى الخاتمة مع مشروع عملي.">
+<title>كلود كود — عرض تفاعلي | المدربة هيله فهد</title>
+<meta name="description" content="عرض تفاعلي يعرّفك بكلود كود من الصفر مع المدربة هيله فهد.">
 <meta name="theme-color" content="#F1EBE0">
 <link rel="icon" href="../logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,212 +151,163 @@ footer img{width:56px;border-radius:50%;margin-bottom:8px}
 @media (max-height:460px){.hints{display:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pill,.toast{transition:none}}
 
-/* ---------- workshop ---------- */
-.tl{position:relative;margin-top:34px;padding-inline-start:0}
-.tl::before{content:"";position:absolute;inset-block:8px;inset-inline-start:78px;width:2px;background:var(--rule)}
-.tl-fill{position:absolute;inset-inline-start:78px;top:8px;width:2px;height:0;background:var(--flower);transition:height .2s}
-.slot{display:grid;grid-template-columns:70px 18px 1fr;gap:14px;margin-bottom:18px;align-items:start}
-.slot .t{font-size:13px;color:var(--taupe);padding-top:18px;text-align:start;direction:ltr}
-.slot .d{width:18px;height:18px;border-radius:50%;background:var(--bg);border:2px solid var(--stem);margin-top:20px;z-index:1;position:relative}
-.slot.on .d{background:var(--flower);border-color:var(--flower)}
-.slot .card{padding:0;overflow:hidden}
-.slot summary{cursor:pointer;list-style:none;padding:18px 22px;display:flex;justify-content:space-between;gap:12px;align-items:center}
-.slot summary::-webkit-details-marker{display:none}
-.slot summary h3{font-size:20px;margin:0}
-.slot summary small{display:block;color:var(--taupe);font-size:13px;margin-top:2px}
-.slot summary::after{content:"+";font-family:"DM Mono";font-size:22px;color:var(--taupe)}
-.slot details[open] summary::after{content:"−"}
-.slot .in{padding:0 22px 20px;color:#4a443d;font-size:15px}
-.slot .in ul{margin:8px 20px 0}
-.slot .in li{margin-bottom:4px}
-.tag{display:inline-block;font-size:12px;border-radius:999px;padding:2px 12px;margin-inline-end:6px;border:1px solid var(--rule);background:var(--bg);color:var(--taupe)}
-.tag.prac{background:var(--flower);border-color:var(--flower);color:#fff}
-.slot.brk .card{background:transparent;border-style:dashed;text-align:center;padding:12px;color:var(--taupe)}
-.prompt{position:relative;background:var(--ink);color:var(--bg);border-radius:16px;padding:16px 18px;margin:12px 0}
-.prompt small{display:block;font-size:12px;opacity:.65;margin-bottom:4px}
+html,body{height:100%;overflow:hidden}
+#deck{position:fixed;inset:0}
+.sl{position:absolute;inset:0;padding:calc(84px + var(--safe-t)) 26px calc(86px + var(--safe-b));overflow-y:auto;opacity:0;visibility:hidden;transform:translateX(-26px);transition:opacity .35s,transform .35s,visibility .35s}
+.sl.on{opacity:1;visibility:visible;transform:none}
+.sl.hero-sl{padding:0;overflow:hidden}
+.wrap{max-width:980px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.sl h2{font-size:clamp(30px,5.2vw,52px)}
+.sl .lead{font-size:clamp(16px,2.2vw,20px)}
+#hero{height:100%;min-height:0}
+.bar-top{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:calc(10px + var(--safe-t)) 18px 10px;pointer-events:none}
+.bar-top>*{pointer-events:auto}
+.bar-top .brand img{width:40px;height:40px}
+.cnt{font-size:13px;color:var(--taupe);background:rgba(248,244,236,.85);border:1px solid var(--rule);border-radius:999px;padding:4px 14px}
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:30;display:flex;align-items:center;gap:14px;padding:12px 18px calc(12px + var(--safe-b));background:linear-gradient(transparent,var(--bg) 40%)}
+.nav .pill{padding:10px 18px}
+.prog{flex:1;height:6px;border-radius:99px;background:var(--rule);overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--flower);transition:width .3s;margin-inline-start:0}
+.ibtn{border:1px solid var(--rule);background:var(--paper);border-radius:999px;width:40px;height:40px;font-size:16px}
+.tabs{display:flex;gap:8px;margin:14px 0}
+.tab{border:1px solid var(--rule);background:var(--paper);border-radius:999px;padding:8px 18px;font-weight:600;font-size:15px}
+.tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.flip{perspective:800px;min-height:150px;cursor:pointer}
+.flip .in{position:relative;height:100%;min-height:150px;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:20px;padding:18px;border:1px solid var(--rule)}
+.flip .f{background:var(--paper)}
+.flip .b{background:var(--ink);color:var(--bg);transform:rotateY(180deg);font-size:14px;overflow:auto}
+.flip h3{font-size:18px;margin-bottom:4px}
+.flip small{color:var(--taupe);font-size:12px}
+.loop{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.loop button{flex:1;min-width:120px;border:1px solid var(--rule);background:var(--paper);border-radius:16px;padding:12px 8px;font-weight:600}
+.loop button.on{background:var(--flower);color:#fff;border-color:var(--flower)}
+.say{background:var(--paper);border:1px solid var(--rule);border-radius:18px;padding:16px 20px;min-height:84px;font-size:17px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.chip{font-family:"DM Mono",monospace;direction:ltr;border:1px solid var(--ink);background:transparent;border-radius:12px;padding:8px 16px;font-size:16px}
+.chip.on{background:var(--ink);color:var(--bg)}
+.opt{display:block;width:100%;text-align:start;border:1px solid var(--rule);background:var(--paper);border-radius:14px;padding:12px 16px;margin-top:8px;font-size:16px}
+.opt.ok{background:#EEF0E6;border-color:var(--stem)}
+.opt.no{background:#FBE5DE;border-color:var(--flower)}
+.note{font-size:13px;color:var(--taupe);margin-top:10px}
+.big{font-family:"Amiri",serif;font-size:clamp(22px,3.4vw,34px);line-height:1.5}
+.pt{display:grid;gap:10px;margin-top:14px}
+.pt div{display:flex;gap:12px;align-items:flex-start;background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:12px 16px}
+.pt i{flex:none;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:700;font-size:14px}
+.prompt{position:relative;background:var(--ink);color:var(--bg);border-radius:16px;padding:14px 18px;margin:10px 0}
+.prompt small{display:block;font-size:12px;opacity:.65}
 .prompt p{font-size:15.5px;line-height:1.8;padding-inline-end:70px}
 .prompt .copy{position:absolute;top:12px;inset-inline-end:12px}
-.paths .card{cursor:pointer;transition:transform .15s,border-color .15s}
-.paths .card:hover{transform:translateY(-2px)}
-.paths .card.sel{border-color:var(--flower);box-shadow:0 0 0 2px var(--line)}
-.checks{display:grid;gap:10px;margin-top:20px}
-.checks label{display:flex;gap:12px;align-items:flex-start;background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:12px 16px;font-weight:500;cursor:pointer}
-.checks input{width:20px;height:20px;margin-top:5px;accent-color:var(--flower);flex:none}
-.checks label.done{border-color:var(--stem);background:#EEF0E6}
-.bar{height:10px;background:var(--rule);border-radius:99px;overflow:hidden;margin-top:18px}
-.bar i{display:block;height:100%;width:0;background:var(--flower);transition:width .3s}
-.end{background:var(--ink);color:var(--bg);border-radius:28px;padding:40px 28px;text-align:center}
-.end h2{color:var(--bg)}
-.end .lead{color:#d8d0c2;margin:0 auto 20px}
-@media (max-width:600px){
-  .tl::before,.tl-fill{inset-inline-start:62px}
-  .slot{grid-template-columns:54px 18px 1fr;gap:10px}
-  .slot summary h3{font-size:17px}
-}
+@media (max-width:600px){.sl{padding-inline:16px}.nav .pill span{display:none}}
+@media (prefers-reduced-motion:reduce){.sl,.flip .in{transition:none}}
 </style>
 </head>
 <body>
-
-<header>
-  <a class="brand" href="#hero" aria-label="helah_projects"><img src="../logo.png" alt="شعار helah_projects"><span class="mono">helah_projects</span></a>
-  <a class="pill" href="../#register">سجّلي في الدورة</a>
-</header>
-
-<section id="hero" aria-label="ورشة كلود كود">
-  <canvas id="garden"></canvas>
-  <input id="typer" type="text" aria-label="اكتبي لتنمو الحديقة" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" tabindex="-1">
-  <div class="hero-top"><span class="kicker">ورشة تطبيقية · مع المدربة هيله فهد</span></div>
-  <div class="hero-bottom">
-    <div class="hints mono" id="hints"><span>اكتبي وشوفي الزهور</span><span>مسافة تقطع</span><span>حذف يذبّل</span><span>Enter يمسح</span></div>
-    <div class="price-cta">
-      <div class="price"><b>٣ ساعات</b><small>من المقدمة للخاتمة · مع مشروع عملي</small></div>
-      <a class="pill" href="#agenda">شوفي المسار ↓</a>
-    </div>
-  </div>
-</section>
-
-<section class="block" id="about">
-  <div class="eyebrow mono">عن الورشة</div>
-  <h2>ساعات قليلة… وتطلعين بـ <em>مشروع تشغّلينه بنفسك</em></h2>
-  <p class="lead">ورشة عملية نبدأ فيها من أول فتح لكلود كود، ونمشي معًا خطوة بخطوة لين يصير عندك مشروع جاهز ومنشور برابط. كل جلسة فيها تطبيق مباشر، وما فيه شرح نظري طويل.</p>
-  <div class="grid g4" style="margin-top:30px">
-    <div class="card"><h3>١. نفهم</h3><p>وش هو كلود كود وكيف يشتغل.</p></div>
-    <div class="card"><h3>٢. نجهّز</h3><p>نجهّز الأداة والمجلد ونجرّب أول طلب.</p></div>
-    <div class="card"><h3>٣. نطبّق</h3><p>نبني مشروعك الحقيقي ونعدّل عليه.</p></div>
-    <div class="card"><h3>٤. ننشر</h3><p>نطلّع المشروع برابط تشاركينه.</p></div>
-  </div>
-  <div class="facts">
-    <div><small>المدة</small><b>٣ ساعات</b></div>
-    <div><small>المستوى</small><b>مبتدئ</b></div>
-    <div><small>الموعد</small><b>يُحدد قريبًا</b></div>
-    <div><small>الأسلوب</small><b>تطبيق مباشر</b></div>
-  </div>
-</section>
-
-<section class="block" id="agenda">
-  <div class="eyebrow mono">مسار الورشة</div>
-  <h2>من <em>المقدمة</em> إلى <em>الخاتمة</em></h2>
-  <p class="lead">اضغطي على أي جلسة لتشوفين تفاصيلها. التوقيت للتقدير ويتعدل حسب تفاعل المجموعة.</p>
-  <div class="tl" id="tl"><div class="tl-fill" id="tlFill"></div>
-
-    <div class="slot"><div class="t mono">0:00</div><div class="d"></div><div class="card"><details open><summary><div><h3>المقدمة والترحيب</h3><small>١٥ دقيقة <span class="tag">تمهيد</span></small></div></summary><div class="in">
-      <ul><li>تعريف بالمدربة وبرنامج الورشة.</li><li>وش هو كلود كود؟ وكيف يختلف عن الدردشة العادية؟</li><li>وش بنطلع فيه اليوم: مشروع كامل منشور برابط.</li><li>اختيار مشروعك: كل وحدة تختار فكرتها من البداية.</li></ul></div></details></div></div>
-
-    <div class="slot"><div class="t mono">0:15</div><div class="d"></div><div class="card"><details><summary><div><h3>الجلسة ١: تجهيز المكان</h3><small>٢٠ دقيقة <span class="tag prac">تطبيق</span></small></div></summary><div class="in">
-      <ul><li>فتح كلود كود وفهم الواجهة.</li><li>إنشاء مجلد للمشروع وتشغيل الأداة داخله.</li><li>أول طلب تجريبي: «عرّفني على هذا المجلد».</li><li>متطلبات الجهاز والحساب نرسلها لك قبل الورشة في القروب.</li></ul></div></details></div></div>
-
-    <div class="slot"><div class="t mono">0:35</div><div class="d"></div><div class="card"><details><summary><div><h3>الجلسة ٢: كيف تكتبين طلبك</h3><small>٣٠ دقيقة <span class="tag prac">تطبيق</span></small></div></summary><div class="in">
-      <p>الطلب الواضح نص النتيجة. نستخدم قالب بسيط من أربع أجزاء:</p>
-      <ul><li><b>الهدف:</b> وش تبين تسوين؟</li><li><b>لمن:</b> مين بيستخدمه؟</li><li><b>المحتوى:</b> وش لازم يكون فيه؟</li><li><b>الشكل:</b> الألوان واللغة والاتجاه.</li></ul>
-      <div class="prompt"><small>مثال على طلب بالقالب</small><p>أبي صفحة تعريفية لمشروعي «اسم المشروع». الهدف إن الزائرة تعرف خدماتي وتتواصل معي. المحتوى: عنوان، نبذة قصيرة، ٣ خدمات، وزر واتساب. الشكل: عربي من اليمين لليسار بألوان هادئة.</p><button type="button" class="copy" data-copyp>نسخ</button></div>
-      <p>تمرين: كل وحدة تكتب طلبها بالقالب وتقارنه بطلب عشوائي.</p></div></details></div></div>
-
-    <div class="slot brk"><div class="t mono">1:05</div><div class="d"></div><div class="card">☕ استراحة ١٠ دقائق</div></div>
-
-    <div class="slot"><div class="t mono">1:15</div><div class="d"></div><div class="card"><details><summary><div><h3>الجلسة ٣: التطبيق العملي — نبني المشروع</h3><small>٦٠ دقيقة <span class="tag prac">القلب العملي</span></small></div></summary><div class="in">
-      <p>هنا نبني مشروعك بنفسك خطوة بخطوة. تفاصيل الخطوات في قسم «التطبيق العملي» تحت.</p>
-      <ul><li>الخطوة ١: الطلب الأول وإنتاج النسخة الأولى.</li><li>الخطوة ٢: المراجعة وتعديل الألوان والنصوص.</li><li>الخطوة ٣: إضافة ميزة (نموذج، زر، قسم جديد).</li><li>الخطوة ٤: أطلبي منه يشرح لك وش سوّى.</li></ul></div></details></div></div>
-
-    <div class="slot"><div class="t mono">2:15</div><div class="d"></div><div class="card"><details><summary><div><h3>الجلسة ٤: النشر ومشاركة الرابط</h3><small>٢٥ دقيقة <span class="tag prac">تطبيق</span></small></div></summary><div class="in">
-      <ul><li>الفحص النهائي: الجوال والكمبيوتر.</li><li>نشر المشروع برابط جاهز للمشاركة.</li><li>ما ننشره: أي بيانات شخصية أو أرقام حساسة.</li></ul></div></details></div></div>
-
-    <div class="slot"><div class="t mono">2:40</div><div class="d"></div><div class="card"><details><summary><div><h3>عرض المشاريع والنقاش</h3><small>١٥ دقيقة <span class="tag">مشاركة</span></small></div></summary><div class="in">
-      <ul><li>كل مشاركة تعرض مشروعها في دقيقة.</li><li>ملاحظات وأفكار للتطوير.</li><li>أسئلة مفتوحة.</li></ul></div></details></div></div>
-
-    <div class="slot"><div class="t mono">2:55</div><div class="d"></div><div class="card"><details><summary><div><h3>الخاتمة والخطوات الجاية</h3><small>٥ دقائق <span class="tag">ختام</span></small></div></summary><div class="in">
-      <ul><li>ملخص سريع لأهم ما تعلمناه.</li><li>وش تسوين بعد الورشة خلال الأسبوع الأول.</li><li>المتابعة والأسئلة في قروب المجمع.</li></ul></div></details></div></div>
-  </div>
-</section>
-
-<section class="block" id="practice">
-  <div class="eyebrow mono">التطبيق العملي</div>
-  <h2>مشروعك <em>خطوة بخطوة</em></h2>
-  <p class="lead">اختاري المسار اللي يناسبك، وبعدين امشي على الخطوات. الطلبات جاهزة للنسخ وعدّلي المكتوب بين الأقواس على مشروعك.</p>
-  <div class="grid g3 paths" style="margin-top:26px" id="paths">
-    <div class="card sel" data-p="0"><h3>صفحة تعريفية</h3><p>لمشروعك أو خدماتك أو مبادرتك.</p></div>
-    <div class="card" data-p="1"><h3>أداة صغيرة</h3><p>حاسبة، جدول، أو نموذج يخدم شغلك.</p></div>
-    <div class="card" data-p="2"><h3>عرض تقديمي تفاعلي</h3><p>لدورة أو اجتماع أو درس.</p></div>
-  </div>
-
-  <div id="pathBody" style="margin-top:26px">
-    <h3 style="font-size:22px">١. الطلب الأول</h3>
-    <div id="p1"></div>
-    <h3 style="font-size:22px;margin-top:22px">٢. التعديل</h3>
-    <div class="prompt"><small>طلب تعديل</small><p>غيّر الألوان إلى (لونين تحبينهم)، وكبّر الخط شوي، وخلّ الأزرار مدورة.</p><button type="button" class="copy" data-copyp>نسخ</button></div>
-    <h3 style="font-size:22px;margin-top:22px">٣. إضافة ميزة</h3>
-    <div id="p3"></div>
-    <h3 style="font-size:22px;margin-top:22px">٤. افهمي اللي سوّاه</h3>
-    <div class="prompt"><small>طلب شرح</small><p>اشرح لي بجمل بسيطة وش الملفات اللي سويتها ووش وظيفة كل ملف، كأني ما أعرف برمجة.</p><button type="button" class="copy" data-copyp>نسخ</button></div>
-  </div>
-
-  <h3 style="font-size:22px;margin-top:34px">قائمة إنجازك</h3>
-  <div class="checks" id="checks">
-    <label><input type="checkbox"> فتحت كلود كود داخل مجلد المشروع</label>
-    <label><input type="checkbox"> كتبت طلبي الأول بالقالب</label>
-    <label><input type="checkbox"> طلعت لي نسخة أولى وعدّلت عليها</label>
-    <label><input type="checkbox"> أضفت ميزة جديدة</label>
-    <label><input type="checkbox"> فحصت المشروع على الجوال</label>
-    <label><input type="checkbox"> نشرت المشروع وجبت الرابط</label>
-  </div>
-  <div class="bar"><i id="barFill"></i></div>
-  <p id="barTxt" style="margin-top:8px;color:var(--taupe);font-size:14px">٠ من ٦</p>
-</section>
-
-<section class="block" id="bring">
-  <div class="eyebrow mono">قبل الورشة</div>
-  <h2>وش تجهزين؟</h2>
-  <div class="grid g3" style="margin-top:22px">
-    <div class="card"><h3>جهاز</h3><p>لابتوب أو كمبيوتر بإنترنت ثابت.</p></div>
-    <div class="card"><h3>فكرة مشروع</h3><p>جملة وحدة تصف وش تبين تبنين.</p></div>
-    <div class="card"><h3>محتوى بسيط</h3><p>اسم، نبذة، وألوان تحبينها. شعار إن وجد.</p></div>
-  </div>
-</section>
-
-<section class="block" id="end">
-  <div class="end">
-    <div class="eyebrow mono" style="color:#cfc7b8">الخاتمة</div>
-    <h2>جاهزة تبدين؟</h2>
-    <p class="lead">سجّلي في دورة «مجمع كلود كود» وتابعي موعد الورشة في قروب المجمع.</p>
-    <a class="pill" href="../#register" style="background:var(--flower);border-color:var(--flower);color:#fff">سجّلي الآن ← ٥٠ ريال</a>
-  </div>
-</section>
-
-<footer>
-  <img src="../logo.png" alt=""><br>
-  <span class="mono">helah_projects</span> · تصميم • إبداع • جودة<br>
-  © ٢٠٢٦ المدربة هيله فهد
-</footer>
+<div class="bar-top"><a class="brand" href="../" aria-label="الرجوع للتسجيل"><img src="../logo.png" alt="شعار helah_projects"></a><div style="display:flex;gap:8px;align-items:center"><span class="cnt mono" id="cnt">1 / 18</span><button class="ibtn" id="fs" aria-label="ملء الشاشة">⛶</button></div></div>
+<main id="deck">
+<section class="sl hero-sl on"><div id="hero">
+<canvas id="garden"></canvas>
+<input id="typer" type="text" aria-label="اكتبي لتنمو الحديقة" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" tabindex="-1">
+<div class="hero-top"><span class="kicker">عرض تفاعلي · مع المدربة هيله فهد</span></div>
+<div class="hero-bottom"><div class="hints mono" id="hints"><span>اكتبي وشوفي الزهور</span><span>مسافة تقطع</span><span>حذف يذبّل</span><span>Enter يمسح</span></div>
+<div class="price-cta"><div class="price"><b>تعرّفي على كلود كود</b><small>من الصفر · استخدمي الأسهم للتنقل</small></div></div></div>
+</div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">وش بنمرّ عليه؟</div><h2>رحلة العرض <em>في ١٠ محطات</em></h2>
+<div class="pt"><div><i>١</i><span>وش هو كلود كود وكيف يختلف عن الدردشة</span></div><div><i>٢</i><span>وش يقدر يسوي وين يشتغل</span></div><div><i>٣</i><span>كيف يشتغل وكيف تبدين أول جلسة</span></div><div><i>٤</i><span>كتابة الطلب، الصلاحيات، CLAUDE.md</span></div><div><i>٥</i><span>أوامر ومزايا متقدمة، تطبيق عملي، واختبار سريع</span></div></div></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">التعريف</div><h2>وش هو <em>كلود كود</em>؟</h2>
+<p class="big">مساعد ذكاء اصطناعي من Anthropic يشتغل داخل مشروعك. يقرأ ملفاتك، ويفهم طلبك المكتوب بالعربي، وينفّذه: يكتب ويعدّل ويشغّل ويشرح.</p>
+<p class="lead" style="margin-top:12px">الفكرة: بدل ما تنسخين وتلصقين بين الدردشة وملفاتك، كلود كود يشتغل على الملفات مباشرة وأنتِ تراجعين وتوافقين.</p></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">مقارنة</div><h2>دردشة عادية <em>أو</em> كلود كود؟</h2>
+<div class="tabs"><button class="tab on" data-t="0">الدردشة</button><button class="tab" data-t="1">كلود كود</button></div>
+<div class="card" id="cmp" style="min-height:190px"></div></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">القدرات</div><h2>وش يقدر <em>يسوي</em>؟</h2><p class="lead">اضغطي على البطاقة تشوفين مثال على طلب.</p>
+<div class="grid g3" style="margin-top:12px">
+<div class="flip"><div class="in"><div class="f"><h3>يبني</h3><small>صفحات وأدوات ونماذج</small></div><div class="b">«أبي صفحة تعريفية لمشروعي بالعربي فيها نموذج تواصل»</div></div></div>
+<div class="flip"><div class="in"><div class="f"><h3>يعدّل</h3><small>ألوان ونصوص وأقسام</small></div><div class="b">«غيّر الألوان إلى الأخضر وكبّر الخط»</div></div></div>
+<div class="flip"><div class="in"><div class="f"><h3>يشرح</h3><small>يبسّط أي ملف أو كود</small></div><div class="b">«اشرح لي هذا الملف كأني ما أعرف برمجة»</div></div></div>
+<div class="flip"><div class="in"><div class="f"><h3>يصلح</h3><small>يلاقي الأخطاء ويحلها</small></div><div class="b">«الزر ما يشتغل، دوّر على السبب وأصلحه»</div></div></div>
+<div class="flip"><div class="in"><div class="f"><h3>يرتّب</h3><small>ملفات ومجلدات</small></div><div class="b">«رتّب ملفات المجلد حسب النوع ولا تحذف شي»</div></div></div>
+<div class="flip"><div class="in"><div class="f"><h3>يكرّر عنك</h3><small>مهام متكررة</small></div><div class="b">«حوّل هذه القائمة إلى جدول منسّق»</div></div></div>
+</div></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">أماكن التشغيل</div><h2>وين <em>يشتغل</em>؟</h2>
+<div class="grid g4" style="margin-top:14px"><div class="card"><h3>الطرفية</h3><p>سطر الأوامر في جهازك.</p></div><div class="card"><h3>محرر الأكواد</h3><p>داخل بيئات مثل VS Code.</p></div><div class="card"><h3>التطبيق المكتبي</h3><p>على الكمبيوتر.</p></div><div class="card"><h3>الويب والجوال</h3><p>من المتصفح أو التطبيق.</p></div></div>
+<p class="note">توفّر كل خيار يتغير مع الوقت. تأكدي من الموقع الرسمي عند التجهيز.</p></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">طريقة العمل</div><h2>كيف <em>يشتغل</em>؟</h2><p class="lead">اضغطي على كل مرحلة.</p>
+<div class="loop" id="loop"><button class="on">١ تطلبين</button><button>٢ يخطط</button><button>٣ يقرأ ويكتب</button><button>٤ يشغّل ويفحص</button><button>٥ تراجعين</button></div>
+<div class="say" id="loopTxt"></div></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">البداية</div><h2>أول <em>جلسة</em></h2>
+<div class="pt"><div><i>١</i><span><b>جهّزي مجلد للمشروع</b> فاضي أو فيه ملفاتك.</span></div><div><i>٢</i><span><b>شغّلي كلود كود داخل المجلد</b> حتى يشوف ملفاتك بس.</span></div><div><i>٣</i><span><b>اكتبي أول طلب بسيط:</b> «عرّفني على هذا المجلد».</span></div><div><i>٤</i><span><b>راجعي قبل الموافقة</b> على أي تعديل يقترحه.</span></div></div>
+<p class="note">خطوات التثبيت الحالية تلقينها في الموقع الرسمي لكلود كود.</p></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">الطلب الجيد</div><h2>اكتبي طلبك <em>بقالب من أربع أجزاء</em></h2>
+<div class="grid g4" style="margin:12px 0"><div class="card"><h3>الهدف</h3><p>وش تبين؟</p></div><div class="card"><h3>لمن</h3><p>مين يستخدمه؟</p></div><div class="card"><h3>المحتوى</h3><p>وش فيه؟</p></div><div class="card"><h3>الشكل</h3><p>ألوان ولغة واتجاه.</p></div></div>
+<div class="tabs"><button class="tab on" data-b="0">طلب ضعيف</button><button class="tab" data-b="1">طلب قوي</button></div>
+<div class="say" id="ba"></div></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">الأمان</div><h2>أنتِ <em>اللي تقررين</em></h2>
+<div class="pt"><div><i>✓</i><span>كلود كود يطلب إذنك قبل ما يعدّل ملفاتك أو يشغّل أوامر.</span></div><div><i>✓</i><span>اقري اللي يقترحه قبل ما توافقين، خصوصًا الحذف.</span></div><div><i>✓</i><span>اشتغلي داخل مجلد المشروع فقط.</span></div><div><i>!</i><span>لا تكتبين له كلمات سر أو أرقام حساب أو بيانات شخصية حساسة.</span></div></div></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">الذاكرة</div><h2>ملف <em>CLAUDE.md</em></h2>
+<p class="lead">ملف نصي في مشروعك يقرأه كلود كود في بداية كل جلسة. اكتبي فيه تعليماتك الثابتة مرة وحدة بدل ما تكرريها.</p>
+<div class="prompt"><small>مثال على محتواه</small><p>اللغة: عربي من اليمين لليسار.<br>الألوان: بيج وأحمر وأخضر زيتي.<br>لا تحذف أي ملف بدون ما تسألني.</p></div>
+<p class="note">تقدرين تطلبين منه ينشئ الملف لك بأمر /init.</p></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">أوامر مفيدة</div><h2>أوامر <em>الشرطة المائلة</em></h2><p class="lead">اضغطي على الأمر.</p>
+<div class="chips" id="chips"><button class="chip on">/help</button><button class="chip">/init</button><button class="chip">/clear</button><button class="chip">/compact</button><button class="chip">/model</button></div>
+<div class="say" id="chipTxt"></div></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">التخطيط</div><h2>وضع <em>التخطيط</em></h2>
+<p class="lead">قبل المشاريع الكبيرة اطلبي منه خطة أول، وراجعيها، وبعدين وافقي على التنفيذ. يقلل المفاجآت ويوفر وقتك.</p>
+<div class="prompt"><small>طلب مثال</small><p>قبل ما تكتب أي شي، اعرض لي خطة من خطوات لبناء (المشروع)، وانتظر موافقتي.</p><button type="button" class="copy" data-cp>نسخ</button></div></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">مزايا متقدمة</div><h2>لما <em>تتمكنين</em></h2>
+<div class="grid g2" style="margin-top:12px"><div class="card"><h3>MCP</h3><p>يربط كلود كود بتطبيقاتك وخدماتك.</p></div><div class="card"><h3>الوكلاء الفرعيون</h3><p>يوزّع المهمة على مساعدين متخصصين.</p></div><div class="card"><h3>المهارات (Skills)</h3><p>تعليمات جاهزة لمهمة معينة يعيد استخدامها.</p></div><div class="card"><h3>الخطافات (Hooks)</h3><p>أوامر تشتغل تلقائيًا عند أحداث معينة.</p></div></div></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">تعثّرتي؟</div><h2>أخطاء شائعة <em>وحلولها</em></h2>
+<div class="pt"><div><i>١</i><span><b>النتيجة مو اللي أبيها:</b> وضّحي الشكل والمحتوى بالقالب، وعدّلي خطوة خطوة.</span></div><div><i>٢</i><span><b>الجلسة طالت وتشتت:</b> ابدئي جلسة جديدة بـ /clear.</span></div><div><i>٣</i><span><b>طلب كبير جدًا:</b> قسّميه لخطوات صغيرة.</span></div><div><i>٤</i><span><b>ما فهمتي اللي سواه:</b> اطلبي منه يشرح بجمل بسيطة.</span></div></div></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">تطبيق عملي</div><h2>مشروعك <em>الأول</em></h2>
+<div class="prompt"><small>الطلب الأول</small><p>أبي صفحة تعريفية لمشروعي «(الاسم)». الهدف إن الزائرة تعرف خدماتي وتتواصل معي. المحتوى: عنوان، نبذة، ٣ خدمات، وزر واتساب. الشكل: عربي من اليمين لليسار بألوان هادئة.</p><button type="button" class="copy" data-cp>نسخ</button></div><div class="prompt"><small>التعديل</small><p>غيّر الألوان إلى (لونين)، وكبّر الخط شوي، وخلّ الأزرار مدورة.</p><button type="button" class="copy" data-cp>نسخ</button></div><div class="prompt"><small>الشرح</small><p>اشرح لي بجمل بسيطة وش الملفات اللي سويتها ووظيفة كل ملف.</p><button type="button" class="copy" data-cp>نسخ</button></div></div></section>
+<section class="sl "><div class="wrap"><div class="eyebrow mono">اختبار سريع</div><h2>اختبري <em>فهمك</em></h2>
+<div id="quiz"></div></div></section>
+<section class="sl "><div class="wrap"><div style="text-align:center"><img src="../logo.png" alt="" style="width:92px;border-radius:50%;margin:0 auto 10px"><div class="eyebrow mono">الخاتمة</div><h2>الخلاصة</h2>
+<p class="lead" style="margin:0 auto 14px">كلود كود يشتغل على ملفاتك وينفّذ طلبك. وضوح الطلب، وفحص اللي يقترحه، والتجربة خطوة خطوة هي سر النتيجة الحلوة.</p>
+<p style="margin-bottom:16px"><a class="pill" href="../#register" style="background:var(--flower);border-color:var(--flower);color:#fff">سجّلي في «مجمع كلود كود» ← ٥٠ ريال</a></p>
+<p class="note">المعلومات عامة وتتغير المزايا مع الوقت. الموقع الرسمي هو المرجع.</p></div></div></section>
+</main>
+<div class="nav"><button class="pill ghost" id="prev">→ <span>السابق</span></button><div class="prog"><i id="pg"></i></div><button class="pill" id="next"><span>التالي</span> ←</button></div>
 <div class="toast" id="toast">تم النسخ ✓</div>
-
 <script>
 (function(){
-  const $=s=>document.querySelector(s);
-  const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1500)};
-  function bindCopy(root){root.querySelectorAll('[data-copyp]').forEach(b=>b.onclick=()=>{
-    const txt=b.parentElement.querySelector('p').textContent;
-    (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>toast('تم نسخ الطلب ✓')).catch(()=>toast('حدّدي النص وانسخيه'))})}
-  const P=[
-    {p1:'أبي صفحة تعريفية لمشروعي «(اسم المشروع)». الهدف إن الزائرة تعرف خدماتي وتتواصل معي. المحتوى: عنوان، نبذة قصيرة، ٣ خدمات، وزر واتساب. الشكل: عربي من اليمين لليسار بألوان هادئة.',
-     p3:'أضف قسم «آراء العميلات» بثلاث بطاقات، وأضف نموذج تواصل بسيط (الاسم، الجوال، الرسالة).'},
-    {p1:'أبي أداة صغيرة تحسب (وصف الحساب اللي تحتاجينه) وتعرض النتيجة بشكل واضح. المستخدمة تدخل الأرقام في خانات، وتضغط زر «احسبي». الشكل: عربي من اليمين لليسار وبسيط.',
-     p3:'أضف زر لنسخ النتيجة، وزر لمسح الخانات، وتحقق إن الخانات ما تقبل حروف.'},
-    {p1:'أبي عرض تقديمي تفاعلي لموضوع «(الموضوع)» من (عدد) شرائح. كل شريحة فيها عنوان ونقاط مختصرة، والتنقل بالأسهم. عربي من اليمين لليسار بألوان هادئة.',
-     p3:'أضف شريحة أسئلة في النهاية، وشريط تقدم يوضح رقم الشريحة.'}
-  ];
-  function mk(label,t){return '<div class="prompt"><small>'+label+'</small><p>'+t+'</p><button type="button" class="copy" data-copyp>نسخ</button></div>'}
-  function show(i){$('#p1').innerHTML=mk('الطلب الأول',P[i].p1);$('#p3').innerHTML=mk('طلب ميزة',P[i].p3);bindCopy($('#pathBody'));
-    document.querySelectorAll('#paths .card').forEach(c=>c.classList.toggle('sel',+c.dataset.p===i))}
-  document.querySelectorAll('#paths .card').forEach(c=>c.onclick=()=>show(+c.dataset.p));
-  show(0);bindCopy(document);
-  const cks=[...document.querySelectorAll('#checks input')];
-  const upd=()=>{const n=cks.filter(c=>c.checked).length;cks.forEach(c=>c.parentElement.classList.toggle('done',c.checked));
-    $('#barFill').style.width=(n/cks.length*100)+'%';$('#barTxt').textContent=n+' من '+cks.length+(n===cks.length?' — ما شاء الله، خلصتي 🌷':'')};
-  cks.forEach(c=>c.onchange=upd);
-  const slots=[...document.querySelectorAll('.slot')],tl=$('#tl'),fill=$('#tlFill');
-  function prog(){const r=tl.getBoundingClientRect(),mid=innerHeight*.55;
-    fill.style.height=Math.max(0,Math.min(r.height-16,mid-r.top))+'px';
-    slots.forEach(s=>s.classList.toggle('on',s.getBoundingClientRect().top<mid))}
-  addEventListener('scroll',prog,{passive:true});addEventListener('resize',prog);prog();
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const sl=$$('.sl');let cur=0;window.__slide=0;
+function go(i){i=Math.max(0,Math.min(sl.length-1,i));sl.forEach((s,k)=>s.classList.toggle('on',k===i));cur=i;window.__slide=i;
+ $('#cnt').textContent=(i+1)+' / '+sl.length;$('#pg').style.width=((i+1)/sl.length*100)+'%';sl[i].scrollTop=0;
+ $('#prev').style.visibility=i?'visible':'hidden';$('#next').style.visibility=i<sl.length-1?'visible':'hidden';history.replaceState(null,'','#'+(i+1))}
+$('#next').onclick=()=>go(cur+1);$('#prev').onclick=()=>go(cur-1);
+addEventListener('keydown',e=>{if(e.target&&e.target.tagName==='INPUT'&&e.target.id!=='typer')return;
+ if(e.key==='ArrowLeft'||e.key==='PageDown'){e.preventDefault();go(cur+1)}else if(e.key==='ArrowRight'||e.key==='PageUp'){e.preventDefault();go(cur-1)}
+ else if(e.key==='Home')go(0);else if(e.key==='End')go(sl.length-1)});
+let sx=0,sy=0;addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>70&&Math.abs(dy)<50){if(cur===0&&e.target.closest&&e.target.closest('#hero')&&false)return;go(dx<0?cur+1:cur-1)}},{passive:true});
+$('#fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()};
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1500)};
+$$('[data-cp]').forEach(b=>b.onclick=()=>{const t=b.parentElement.querySelector('p').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('تم نسخ الطلب ✓')).catch(()=>toast('حدّدي النص وانسخيه'))});
+$$('.flip').forEach(f=>f.onclick=()=>f.classList.toggle('on'));
+const CMP=[ '<h3>الدردشة العادية</h3><ul style="margin:8px 20px"><li>تسألين وتجاوبك بنص.</li><li>أنتِ تنسخين وتلصقين بين الدردشة وملفاتك.</li><li>ما تشوف ملفات مشروعك إلا لو أرفقتيها.</li></ul>','<h3>كلود كود</h3><ul style="margin:8px 20px"><li>يشتغل داخل مجلد مشروعك.</li><li>يقرأ الملفات ويكتب ويعدّل مباشرة بإذنك.</li><li>يشغّل ويفحص ويكمل على نفس السياق.</li></ul>'];
+function cmp(i){$('#cmp').innerHTML=CMP[i];$$('[data-t]').forEach(b=>b.classList.toggle('on',+b.dataset.t===i))}
+$$('[data-t]').forEach(b=>b.onclick=()=>cmp(+b.dataset.t));cmp(0);
+const LP=['أنتِ تكتبين طلبك بالعربي: «أبي صفحة تعريفية لمشروعي».','كلود كود يضع خطة ويحدد الملفات اللي بيكتبها أو يعدلها.','يقرأ ملفات المشروع ويكتب الكود ويعدّل عليه.','يشغّل ويجرّب ويكتشف الأخطاء ويحاول يصلحها.','أنتِ تراجعين النتيجة وتطلبين تعديل أو تعتمدين.'];
+function lp(i){$$('#loop button').forEach((b,k)=>b.classList.toggle('on',k===i));$('#loopTxt').textContent=LP[i]}
+$$('#loop button').forEach((b,k)=>b.onclick=()=>lp(k));lp(0);
+const BA=['«سوّي لي موقع».<br><small class="note">غامض: وش النوع؟ ولمن؟ وبأي شكل؟</small>','«أبي صفحة تعريفية لمشروعي (الاسم) لعميلات يبون يحجزون. فيها عنوان ونبذة و٣ خدمات وزر واتساب. عربي من اليمين لليسار بألوان هادئة».<br><small class="note">واضح: هدف، جمهور، محتوى، شكل.</small>'];
+function ba(i){$('#ba').innerHTML=BA[i];$$('[data-b]').forEach(b=>b.classList.toggle('on',+b.dataset.b===i))}
+$$('[data-b]').forEach(b=>b.onclick=()=>ba(+b.dataset.b));ba(0);
+const CH={'/help':'يعرض لك الأوامر المتاحة والمساعدة.','/init':'ينشئ ملف CLAUDE.md للمشروع.','/clear':'يبدأ محادثة جديدة نظيفة.','/compact':'يختصر المحادثة الطويلة لتوفير المساحة.','/model':'يتيح لك اختيار النموذج المستخدم.'};
+function ch(k){$$('#chips .chip').forEach(c=>c.classList.toggle('on',c.textContent===k));$('#chipTxt').textContent=CH[k]}
+$$('#chips .chip').forEach(c=>c.onclick=()=>ch(c.textContent));ch('/help');
+const Q=[{q:'وش الفرق الأساسي لكلود كود؟',o:['يشتغل على ملفات مشروعك مباشرة','يجاوب بس بالنص','يشتغل بدون إنترنت'],a:0},
+{q:'قبل ما يعدّل ملفاتك، وش المفروض تسوين؟',o:['توافقين بدون قراءة','تراجعين اللي يقترحه','تقفلين الجهاز'],a:1},
+{q:'وش فايدة ملف CLAUDE.md؟',o:['يحفظ تعليماتك الثابتة للمشروع','يرسم الصور','يسرّع الإنترنت'],a:0}];
+let qi=0,sc=0;
+function rq(){const z=$('#quiz');if(qi>=Q.length){z.innerHTML='<p class="big">نتيجتك: '+sc+' من '+Q.length+(sc===Q.length?' — ما شاء الله 🌷':'')+'</p><button class="tab" id="rq">أعيدي الاختبار</button>';$('#rq').onclick=()=>{qi=0;sc=0;rq()};return}
+ const q=Q[qi];z.innerHTML='<p class="lead"><b>'+(qi+1)+'. '+q.q+'</b></p>'+q.o.map((t,k)=>'<button class="opt" data-k="'+k+'">'+t+'</button>').join('');
+ $$('#quiz .opt').forEach(b=>b.onclick=()=>{const k=+b.dataset.k;if(k===q.a)sc++;$$('#quiz .opt').forEach(x=>{x.disabled=true;if(+x.dataset.k===q.a)x.classList.add('ok');else if(x===b)x.classList.add('no')});setTimeout(()=>{qi++;rq()},900)})}
+rq();
+const h=parseInt(location.hash.slice(1));go(h>0?h-1:0);
 })();
 
 /* ===================== Letterbloom garden ===================== */
@@ -612,10 +563,10 @@ hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();poi
 hero.addEventListener('pointerleave',()=>pointer.on=false);
 hero.addEventListener('pointerup',e=>{if(e.pointerType==='touch')pointer.on=false});
 // type anywhere on desktop while hero is in view (not inside form fields)
-document.addEventListener('keydown',e=>{if(e.target!==document.body)return;const r=hero.getBoundingClientRect();if(r.bottom<100)return;
+document.addEventListener('keydown',e=>{if(e.target!==document.body||window.__slide!==0)return;const r=hero.getBoundingClientRect();if(r.bottom<100)return;
   if(e.key&&(e.key.length===1||e.key==='Backspace'||e.key==='Enter')){focusInp();key(e)}});
 // ---------- demo ----------
-const DEMO='ورشة كلود كود';let demoTimer=null,demoOn=true;
+const DEMO='كلود كود';let demoTimer=null,demoOn=true;
 function demoStop(){if(demoOn){demoOn=false;clearTimeout(demoTimer)}}
 function runDemo(i=0){if(!demoOn)return;if(i<DEMO.length){addChar(DEMO[i],performance.now());lastKey=performance.now();demoTimer=setTimeout(()=>runDemo(i+1),DEMO[i]===' '?420:170)}
   else{demoOn=false;const L=letters.filter(l=>!l.space).pop();cutWord(L,performance.now())}}
