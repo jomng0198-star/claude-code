@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>كلود كود — عرض تفاعلي | المدربة هيله فهد</title>
-<meta name="description" content="عرض تفاعلي يعرّفك بكلود كود من الصفر مع المدربة هيله فهد.">
+<title>كلود كود — دليل احترافي تفاعلي | المدربة هيله فهد</title>
+<meta name="description" content="عرض تفاعلي احترافي عن كلود كود بمجسمات ثلاثية الأبعاد وتطبيق عملي — المدربة هيله فهد.">
 <meta name="theme-color" content="#F1EBE0">
 <link rel="icon" href="../logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -153,163 +153,474 @@ footer img{width:56px;border-radius:50%;margin-bottom:8px}
 
 html,body{height:100%;overflow:hidden}
 #deck{position:fixed;inset:0}
-.sl{position:absolute;inset:0;padding:calc(84px + var(--safe-t)) 26px calc(86px + var(--safe-b));overflow-y:auto;opacity:0;visibility:hidden;transform:translateX(-26px);transition:opacity .35s,transform .35s,visibility .35s}
+.sl{position:absolute;inset:0;padding:calc(76px + var(--safe-t)) 26px calc(84px + var(--safe-b));overflow-y:auto;opacity:0;visibility:hidden;transform:translateX(-26px);transition:opacity .35s,transform .35s,visibility .35s}
 .sl.on{opacity:1;visibility:visible;transform:none}
 .sl.hero-sl{padding:0;overflow:hidden}
-.wrap{max-width:980px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;justify-content:center;gap:6px}
-.sl h2{font-size:clamp(30px,5.2vw,52px)}
-.sl .lead{font-size:clamp(16px,2.2vw,20px)}
+.wrap{max-width:1040px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.sl h2{font-size:clamp(28px,4.6vw,46px);margin:2px 0 8px}
+.sl h3{font-size:19px}
+.sl .lead{font-size:clamp(15px,1.9vw,18px);max-width:none}
 #hero{height:100%;min-height:0}
 .bar-top{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:calc(10px + var(--safe-t)) 18px 10px;pointer-events:none}
 .bar-top>*{pointer-events:auto}
 .bar-top .brand img{width:40px;height:40px}
-.cnt{font-size:13px;color:var(--taupe);background:rgba(248,244,236,.85);border:1px solid var(--rule);border-radius:999px;padding:4px 14px}
+.cnt{font-size:13px;color:var(--taupe);background:rgba(248,244,236,.88);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;direction:ltr}
+.secname{font-size:13px;color:var(--taupe);background:rgba(248,244,236,.88);border:1px solid var(--rule);border-radius:999px;padding:4px 14px}
 .nav{position:fixed;bottom:0;left:0;right:0;z-index:30;display:flex;align-items:center;gap:14px;padding:12px 18px calc(12px + var(--safe-b));background:linear-gradient(transparent,var(--bg) 40%)}
 .nav .pill{padding:10px 18px}
 .prog{flex:1;height:6px;border-radius:99px;background:var(--rule);overflow:hidden}
-.prog i{display:block;height:100%;width:0;background:var(--flower);transition:width .3s;margin-inline-start:0}
+.prog i{display:block;height:100%;width:0;background:var(--flower);transition:width .3s}
 .ibtn{border:1px solid var(--rule);background:var(--paper);border-radius:999px;width:40px;height:40px;font-size:16px}
-.tabs{display:flex;gap:8px;margin:14px 0}
+.tabs{display:flex;gap:8px;margin:10px 0;flex-wrap:wrap}
 .tab{border:1px solid var(--rule);background:var(--paper);border-radius:999px;padding:8px 18px;font-weight:600;font-size:15px}
 .tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.flip{perspective:800px;min-height:150px;cursor:pointer}
-.flip .in{position:relative;height:100%;min-height:150px;transition:transform .5s;transform-style:preserve-3d}
-.flip.on .in{transform:rotateY(180deg)}
-.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:20px;padding:18px;border:1px solid var(--rule)}
-.flip .f{background:var(--paper)}
-.flip .b{background:var(--ink);color:var(--bg);transform:rotateY(180deg);font-size:14px;overflow:auto}
-.flip h3{font-size:18px;margin-bottom:4px}
-.flip small{color:var(--taupe);font-size:12px}
-.loop{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
-.loop button{flex:1;min-width:120px;border:1px solid var(--rule);background:var(--paper);border-radius:16px;padding:12px 8px;font-weight:600}
-.loop button.on{background:var(--flower);color:#fff;border-color:var(--flower)}
-.say{background:var(--paper);border:1px solid var(--rule);border-radius:18px;padding:16px 20px;min-height:84px;font-size:17px}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
-.chip{font-family:"DM Mono",monospace;direction:ltr;border:1px solid var(--ink);background:transparent;border-radius:12px;padding:8px 16px;font-size:16px}
-.chip.on{background:var(--ink);color:var(--bg)}
+.cols{display:grid;grid-template-columns:1.05fr 1fr;gap:22px;align-items:stretch;margin-top:6px}
+.stage{position:relative;min-height:400px;border-radius:26px;border:1px solid var(--rule);background:radial-gradient(circle at 50% 38%,#fffaf2 0,var(--paper) 55%,#EFE6D6 100%);overflow:hidden}
+.stage .hint{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:12px;color:var(--taupe);pointer-events:none}
+.stage .tagc{position:absolute;top:12px;inset-inline-start:14px;font-size:12px;color:var(--taupe);pointer-events:none}
+.nogl{display:grid;place-items:center;height:100%;color:var(--taupe);padding:20px;text-align:center}
+.info p{margin-bottom:10px;color:#3a352f;font-size:15.5px}
+.items{display:grid;gap:8px;margin:10px 0}
+.it{text-align:start;background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:10px 14px;display:block;width:100%;transition:border-color .15s,background .15s}
+.it b{display:block;font-size:15.5px}
+.it span{display:block;font-size:13.5px;color:#5a534b;margin-top:2px}
+.it.on{border-color:var(--flower);background:#FFF3EE}
+.ex{background:var(--ink);color:var(--bg);border-radius:14px;padding:10px 14px;font-size:14px;margin-top:6px}
+.ex small{opacity:.65;display:block;font-size:11px}
+.say{background:var(--paper);border:1px solid var(--rule);border-radius:18px;padding:16px 20px;font-size:16px}
+.note{font-size:13px;color:var(--taupe);margin-top:8px}
+.big{font-family:"Amiri",serif;font-size:clamp(20px,3vw,30px);line-height:1.55}
+.pt{display:grid;gap:9px;margin-top:10px}
+.pt>div{display:flex;gap:12px;align-items:flex-start;background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:11px 15px;font-size:15px}
+.pt i{flex:none;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:700;font-size:14px}
+.prompt{position:relative;background:var(--ink);color:var(--bg);border-radius:16px;padding:12px 16px;margin:8px 0}
+.prompt small{display:block;font-size:12px;opacity:.65}
+.prompt p{font-size:14.5px;line-height:1.8;padding-inline-end:70px}
+.prompt .copy{position:absolute;top:10px;inset-inline-end:10px}
+.tocg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.tocg button{text-align:start;background:var(--paper);border:1px solid var(--rule);border-radius:18px;padding:14px 18px;display:flex;gap:14px;align-items:center;transition:transform .15s,border-color .15s}
+.tocg button:hover{transform:translateY(-2px);border-color:var(--flower)}
+.tocg b{font-family:"Amiri",serif;font-size:28px;color:var(--flower);min-width:34px}
+.tocg span{font-size:15.5px;font-weight:600}
+.tocg small{display:block;font-weight:400;color:var(--taupe);font-size:12.5px}
+.tocg .wide{grid-column:1/-1;align-items:flex-start}
+.subs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.subs a{font-size:12.5px;border:1px solid var(--rule);border-radius:999px;padding:3px 12px;background:var(--bg);cursor:pointer;font-weight:500;text-decoration:none}
+.subs a:hover{border-color:var(--flower)}
+.term{direction:ltr;background:#1b1917;color:#e9e2d6;border-radius:18px;overflow:hidden;font-family:"DM Mono",ui-monospace,monospace;font-size:13.5px;box-shadow:0 30px 60px -30px rgba(30,27,24,.5)}
+.term .th{display:flex;gap:7px;align-items:center;padding:10px 14px;background:#2a2622}
+.term .th i{width:11px;height:11px;border-radius:50%;background:#D9472B}.term .th i:nth-child(2){background:#d9a92b}.term .th i:nth-child(3){background:#5E8B4E}
+.term .th span{margin-left:10px;color:#9b9286;font-size:12px}
+.term .tb{padding:14px 16px;min-height:300px;max-height:46vh;overflow:auto;line-height:1.75}
+.tl-u{color:#fff}.tl-u b{color:#D9472B}
+.tl-a{color:#e9e2d6}.tl-t{color:#9AA08A}.tl-q{color:#FFD3C2}.tl-ok{color:#8fc07a}
+.tl-u,.tl-a,.tl-t,.tl-q,.tl-ok{white-space:pre-wrap;display:block}
+.cur{display:inline-block;width:8px;height:15px;background:#e9e2d6;vertical-align:-2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.roles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px}
+.role{background:var(--paper);border:1px solid var(--rule);border-radius:20px;padding:16px}
+.role h3{margin-bottom:2px}
+.role .tag{display:inline-block;font-size:12px;background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:1px 10px;color:var(--taupe);margin-bottom:6px}
+.role p{font-size:14px;color:#4a443d}
+.role .prompt{margin:8px 0 0}
 .opt{display:block;width:100%;text-align:start;border:1px solid var(--rule);background:var(--paper);border-radius:14px;padding:12px 16px;margin-top:8px;font-size:16px}
 .opt.ok{background:#EEF0E6;border-color:var(--stem)}
 .opt.no{background:#FBE5DE;border-color:var(--flower)}
-.note{font-size:13px;color:var(--taupe);margin-top:10px}
-.big{font-family:"Amiri",serif;font-size:clamp(22px,3.4vw,34px);line-height:1.5}
-.pt{display:grid;gap:10px;margin-top:14px}
-.pt div{display:flex;gap:12px;align-items:flex-start;background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:12px 16px}
-.pt i{flex:none;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:700;font-size:14px}
-.prompt{position:relative;background:var(--ink);color:var(--bg);border-radius:16px;padding:14px 18px;margin:10px 0}
-.prompt small{display:block;font-size:12px;opacity:.65}
-.prompt p{font-size:15.5px;line-height:1.8;padding-inline-end:70px}
-.prompt .copy{position:absolute;top:12px;inset-inline-end:12px}
-@media (max-width:600px){.sl{padding-inline:16px}.nav .pill span{display:none}}
-@media (prefers-reduced-motion:reduce){.sl,.flip .in{transition:none}}
+.fm{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.fm label{font-size:13px;font-weight:600;display:block;margin-bottom:3px}
+.fm input{width:100%;font:inherit;font-size:15px;background:#fff;border:1px solid var(--rule);border-radius:12px;padding:9px 12px}
+.fm .full{grid-column:1/-1}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.chip{border:1px solid var(--ink);background:transparent;border-radius:999px;padding:7px 16px;font-size:14.5px;font-weight:600}
+.chip.on{background:var(--ink);color:var(--bg)}
+.pv{display:grid;grid-template-columns:1fr 1.1fr;gap:18px;align-items:start}
+.mock{border:1px solid var(--rule);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 30px 60px -34px rgba(30,27,24,.5);transition:background .4s}
+.mock .url{background:#E7E0D3;padding:7px 12px;font-size:12px;color:#6b625c;direction:ltr;display:flex;justify-content:space-between;gap:8px}
+.mock .pg{padding:18px;min-height:300px;transition:all .4s;font-family:"IBM Plex Sans Arabic",sans-serif}
+.mock h4{font-size:20px;margin-bottom:4px;font-family:"Amiri",serif;font-size:26px}
+.mock .sv{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.mock .sv div{border:1px solid #bbb;padding:10px 4px;text-align:center;font-size:13px;border-radius:2px;transition:all .4s}
+.mock .fo{display:none;margin-top:8px}.mock .fo div{height:22px;border:1px solid #bbb;margin-bottom:6px}.mock .fo b{display:block;text-align:center;padding:6px;background:#bbb;font-size:13px}
+.mock .ok{display:none;margin-top:10px;font-size:13px;font-weight:700}
+.mock[data-s="2"] .pg,.mock[data-s="3"] .pg,.mock[data-s="4"] .pg{background:#F1EBE0}
+.mock[data-s="2"] h4,.mock[data-s="3"] h4,.mock[data-s="4"] h4{color:#D9472B}
+.mock[data-s="2"] .sv div,.mock[data-s="3"] .sv div,.mock[data-s="4"] .sv div{background:#F8F4EC;border-color:#D9472B;border-radius:14px;color:#1E1B18}
+.mock[data-s="3"] .fo,.mock[data-s="4"] .fo{display:block}
+.mock[data-s="3"] .fo b,.mock[data-s="4"] .fo b{background:#D9472B;color:#fff;border-radius:999px}
+.mock[data-s="3"] .fo div,.mock[data-s="4"] .fo div{border-radius:10px}
+.mock[data-s="4"] .ok{display:block;color:#3b7a2b}
+.stp{display:grid;gap:8px}
+.stp button{text-align:start;background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:10px 14px;font-size:14.5px}
+.stp button b{display:block}
+.stp button.on{border-color:var(--flower);background:#FFF3EE}
+.checks{display:grid;gap:8px;margin-top:10px}
+.checks label{display:flex;gap:12px;align-items:flex-start;background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:10px 14px;font-weight:500;cursor:pointer;font-size:15px}
+.checks input{width:20px;height:20px;margin-top:4px;accent-color:var(--flower);flex:none}
+.checks label.done{border-color:var(--stem);background:#EEF0E6}
+.bar{height:8px;background:var(--rule);border-radius:99px;overflow:hidden;margin-top:12px}
+.bar i{display:block;height:100%;width:0;background:var(--flower);transition:width .3s}
+.cmp{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:8px;background:var(--paper);border-radius:14px;overflow:hidden}
+.cmp th,.cmp td{padding:9px 12px;border-bottom:1px solid var(--rule);text-align:start}
+.cmp th{background:var(--ink);color:var(--bg);font-weight:600}
+@media (max-width:860px){.cols,.pv,.tocg,.roles,.fm{grid-template-columns:1fr}.stage{min-height:340px}.sl{padding-inline:16px}.secname{display:none}.nav .pill span{display:none}}
+@media (prefers-reduced-motion:reduce){.sl{transition:none}}
 </style>
 </head>
 <body>
-<div class="bar-top"><a class="brand" href="../" aria-label="الرجوع للتسجيل"><img src="../logo.png" alt="شعار helah_projects"></a><div style="display:flex;gap:8px;align-items:center"><span class="cnt mono" id="cnt">1 / 18</span><button class="ibtn" id="fs" aria-label="ملء الشاشة">⛶</button></div></div>
+<div class="bar-top"><a class="brand" href="../" aria-label="الرجوع للتسجيل"><img src="../logo.png" alt="شعار helah_projects"></a><div style="display:flex;gap:8px;align-items:center"><span class="secname" id="secname"></span><span class="cnt mono" id="cnt"></span><button class="ibtn" id="fs" aria-label="ملء الشاشة">⛶</button></div></div>
 <main id="deck">
-<section class="sl hero-sl on"><div id="hero">
+
+<!-- ========== الغلاف ========== -->
+<section class="sl hero-sl on" id="s-cover" data-sec="الغلاف"><div id="hero">
 <canvas id="garden"></canvas>
 <input id="typer" type="text" aria-label="اكتبي لتنمو الحديقة" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" tabindex="-1">
 <div class="hero-top"><span class="kicker">عرض تفاعلي · مع المدربة هيله فهد</span></div>
 <div class="hero-bottom"><div class="hints mono" id="hints"><span>اكتبي وشوفي الزهور</span><span>مسافة تقطع</span><span>حذف يذبّل</span><span>Enter يمسح</span></div>
-<div class="price-cta"><div class="price"><b>تعرّفي على كلود كود</b><small>من الصفر · استخدمي الأسهم للتنقل</small></div></div></div>
+<div class="price-cta"><div class="price"><b>كلود كود</b><small>دليل احترافي من الصفر · الأسهم للتنقل</small></div></div></div>
 </div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">وش بنمرّ عليه؟</div><h2>رحلة العرض <em>في ١٠ محطات</em></h2>
-<div class="pt"><div><i>١</i><span>وش هو كلود كود وكيف يختلف عن الدردشة</span></div><div><i>٢</i><span>وش يقدر يسوي وين يشتغل</span></div><div><i>٣</i><span>كيف يشتغل وكيف تبدين أول جلسة</span></div><div><i>٤</i><span>كتابة الطلب، الصلاحيات، CLAUDE.md</span></div><div><i>٥</i><span>أوامر ومزايا متقدمة، تطبيق عملي، واختبار سريع</span></div></div></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">التعريف</div><h2>وش هو <em>كلود كود</em>؟</h2>
-<p class="big">مساعد ذكاء اصطناعي من Anthropic يشتغل داخل مشروعك. يقرأ ملفاتك، ويفهم طلبك المكتوب بالعربي، وينفّذه: يكتب ويعدّل ويشغّل ويشرح.</p>
-<p class="lead" style="margin-top:12px">الفكرة: بدل ما تنسخين وتلصقين بين الدردشة وملفاتك، كلود كود يشتغل على الملفات مباشرة وأنتِ تراجعين وتوافقين.</p></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">مقارنة</div><h2>دردشة عادية <em>أو</em> كلود كود؟</h2>
-<div class="tabs"><button class="tab on" data-t="0">الدردشة</button><button class="tab" data-t="1">كلود كود</button></div>
-<div class="card" id="cmp" style="min-height:190px"></div></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">القدرات</div><h2>وش يقدر <em>يسوي</em>؟</h2><p class="lead">اضغطي على البطاقة تشوفين مثال على طلب.</p>
-<div class="grid g3" style="margin-top:12px">
-<div class="flip"><div class="in"><div class="f"><h3>يبني</h3><small>صفحات وأدوات ونماذج</small></div><div class="b">«أبي صفحة تعريفية لمشروعي بالعربي فيها نموذج تواصل»</div></div></div>
-<div class="flip"><div class="in"><div class="f"><h3>يعدّل</h3><small>ألوان ونصوص وأقسام</small></div><div class="b">«غيّر الألوان إلى الأخضر وكبّر الخط»</div></div></div>
-<div class="flip"><div class="in"><div class="f"><h3>يشرح</h3><small>يبسّط أي ملف أو كود</small></div><div class="b">«اشرح لي هذا الملف كأني ما أعرف برمجة»</div></div></div>
-<div class="flip"><div class="in"><div class="f"><h3>يصلح</h3><small>يلاقي الأخطاء ويحلها</small></div><div class="b">«الزر ما يشتغل، دوّر على السبب وأصلحه»</div></div></div>
-<div class="flip"><div class="in"><div class="f"><h3>يرتّب</h3><small>ملفات ومجلدات</small></div><div class="b">«رتّب ملفات المجلد حسب النوع ولا تحذف شي»</div></div></div>
-<div class="flip"><div class="in"><div class="f"><h3>يكرّر عنك</h3><small>مهام متكررة</small></div><div class="b">«حوّل هذه القائمة إلى جدول منسّق»</div></div></div>
+
+<!-- ========== المقدمة ========== -->
+<section class="sl" id="s-intro" data-sec="المقدمة"><div class="wrap">
+<div class="eyebrow mono">المقدمة</div>
+<h2>عصر <em>المساعد الذي ينفّذ</em> لا الذي يجيب فقط</h2>
+<p class="big">لم يعد الذكاء الاصطناعي مجرد نافذة محادثة تسألينها وتنسخين جوابها. مع كلود كود صار عندك مساعد يدخل مجلد مشروعك، يقرأ ملفاته، ويكتب ويعدّل وينفّذ ما تطلبينه بلغتك، وأنتِ صاحبة القرار في كل خطوة.</p>
+<div class="grid g3" style="margin-top:14px">
+<div class="card"><h3>الغرض من العرض</h3><p>تقديم صورة كاملة ومبسّطة عن كلود كود: ما هو، كيف يعمل، ما حدوده، وكيف تبدئين استخدامه بثقة.</p></div>
+<div class="card"><h3>لمن هذا العرض؟</h3><p>المعلمات والإداريات والمصممات وأصحاب المشاريع وكل من يريد إنجاز أعمال رقمية دون خلفية برمجية.</p></div>
+<div class="card"><h3>ماذا ستخرجين به؟</h3><p>فهم واضح للأداة، قدرة على كتابة طلب فعّال، ومشروع أول تنفّذينه بنفسك في الجزء العملي.</p></div>
+</div>
+<div class="facts"><div><small>المدربة</small><b>هيله فهد</b></div><div><small>المستوى</small><b>مبتدئ</b></div><div><small>الأسلوب</small><b>شرح + مجسمات + تطبيق</b></div><div><small>المخرج</small><b>مشروع منشور</b></div></div>
+</div></section>
+
+<!-- ========== الفهرس ========== -->
+<section class="sl" id="s-toc" data-sec="الفهرس"><div class="wrap">
+<div class="eyebrow mono">الفهرس</div>
+<h2>خريطة <em>العرض</em></h2>
+<p class="lead">اضغطي على أي قسم للانتقال إليه مباشرة.</p>
+<div class="tocg">
+<button data-go="s-intro"><b>١</b><span>المقدمة<small>لماذا كلود كود؟ ولمن؟</small></span></button>
+<button class="wide" data-go="c1"><b>٢</b><span>المحتوى — سبعة محاور بمجسمات ثلاثية الأبعاد<small>اسحبي المجسم لتدويره واضغطي على أي عنصر لشرحه</small>
+<div class="subs"><a data-go="c1">التعريف</a><a data-go="c2">آلية العمل</a><a data-go="c3">القدرات</a><a data-go="c4">أماكن التشغيل</a><a data-go="c5">الأمان</a><a data-go="c6">الذاكرة والأوامر</a><a data-go="c7">المزايا المتقدمة</a><a data-go="s-scenes">مشاهد حقيقية من الجلسات</a><a data-go="s-roles">سيناريوهات واقعية</a><a data-go="s-best">أفضل الممارسات</a></div></span></button>
+<button data-go="s-sum"><b>٣</b><span>الخلاصة<small>أهم ما تحتفظين به + اختبار قصير</small></span></button>
+<button data-go="s-idea"><b>٤</b><span>الفكرة<small>اختاري فكرة مشروعك وحوّليها إلى طلب</small></span></button>
+<button data-go="p1"><b>٥</b><span>التطبيق العملي<small>التجهيز، البناء مع معاينة حية، النشر</small></span></button>
+</div>
+</div></section>
+
+<!-- ========== المحور ١ ========== -->
+<section class="sl" id="c1" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">المحور ١ من ٧ · التعريف</div>
+<h2>ما هو <em>كلود كود</em>؟</h2>
+<div class="cols">
+<div class="stage" data-scene="folder"><span class="tagc">مجسم: مجلد المشروع</span><div class="hint">اسحبي للتدوير · اضغطي على عنصر من القائمة</div></div>
+<div class="info">
+<p>كلود كود أداة من شركة Anthropic تعمل بالذكاء الاصطناعي وتشتغل داخل مجلد مشروعك. تكتبين طلبك بالعربية فتقرأ الملفات وتنفّذ العمل مباشرة وتطلب موافقتك على الخطوات المهمة.</p>
+<div class="items">
+<button class="it on" data-i="0"><b>كلود كود (النواة)</b><span>العقل الذي يفهم طلبك ويخطط للتنفيذ ويتخذ الخطوات.</span></button>
+<button class="it" data-i="1"><b>ملفات المشروع</b><span>يقرأ ما في مجلدك ويكتب فيه ويعدّل عليه بدل أن تنسخي وتلصقي.</span></button>
+<button class="it" data-i="2"><b>طلبك</b><span>التعليمة المكتوبة بلغتك. كلما كانت أوضح كانت النتيجة أدق.</span></button>
+<button class="it" data-i="3"><b>السياق</b><span>كل ما يتذكره في الجلسة: طلباتك السابقة وملفاتك وتعليماتك الثابتة.</span></button>
+</div>
+<table class="cmp"><tr><th></th><th>الدردشة العادية</th><th>كلود كود</th></tr><tr><td>الملفات</td><td>ترفقينها يدويًا</td><td>يقرأها من المجلد</td></tr><tr><td>التنفيذ</td><td>نص تنسخينه</td><td>يكتب ويعدّل مباشرة</td></tr><tr><td>التحكم</td><td>كامل</td><td>كامل بالموافقة</td></tr></table>
+</div></div></div></section>
+
+<!-- ========== المحور ٢ ========== -->
+<section class="sl" id="c2" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">المحور ٢ من ٧ · آلية العمل</div>
+<h2>كيف <em>يشتغل</em> خطوة بخطوة؟</h2>
+<div class="cols">
+<div class="stage" data-scene="loop"><span class="tagc">مجسم: حلقة العمل</span><div class="hint">النقطة المتحركة تمثل دورة العمل · اضغطي على مرحلة</div></div>
+<div class="info">
+<p>يعمل كلود كود في حلقة متكررة: تطلبين، فيخطط وينفذ ويفحص، ثم تراجعين وتعدّلين. فهم هذه الحلقة هو مفتاح استخدام الأداة بذكاء.</p>
+<div class="items">
+<button class="it on" data-i="0"><b>١ تطلبين</b><span>تكتبين الهدف بوضوح: ماذا تريدين ولمن وبأي شكل.</span></button>
+<button class="it" data-i="1"><b>٢ يخطّط</b><span>يحدد الملفات المعنية والخطوات، ويمكنك طلب الخطة قبل التنفيذ.</span></button>
+<button class="it" data-i="2"><b>٣ ينفّذ</b><span>يكتب ويعدّل الملفات، ويطلب إذنك قبل التغييرات.</span></button>
+<button class="it" data-i="3"><b>٤ يفحص</b><span>يجرّب النتيجة ويكتشف الأخطاء ويحاول إصلاحها.</span></button>
+<button class="it" data-i="4"><b>٥ تراجعين</b><span>تقيّمين النتيجة وتطلبين تعديلًا أو تعتمدينها. ثم تبدأ الحلقة من جديد.</span></button>
+</div></div></div></div></section>
+
+<!-- ========== المحور ٣ ========== -->
+<section class="sl" id="c3" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">المحور ٣ من ٧ · القدرات</div>
+<h2>وش <em>يقدر يسوي</em>؟</h2>
+<div class="cols">
+<div class="stage" data-scene="cube"><span class="tagc">مجسم: ست قدرات</span><div class="hint">اسحبي للتدوير · اضغطي على قدرة لعرض مثال</div></div>
+<div class="info">
+<p>قدرات كلود كود تغطي دورة العمل الرقمي كاملة. هذه أبرزها مع مثال طلب لكل قدرة.</p>
+<div class="items">
+<button class="it on" data-i="0"><b>يبني</b><span>صفحات، أدوات، نماذج، وعروض من الصفر.</span></button>
+<button class="it" data-i="1"><b>يعدّل</b><span>ألوان وخطوط ونصوص وأقسام في ملف موجود.</span></button>
+<button class="it" data-i="2"><b>يشرح</b><span>يبسّط أي ملف أو كود بلغة مفهومة.</span></button>
+<button class="it" data-i="3"><b>يصلح</b><span>يبحث عن سبب الخلل ويقترح الحل ويطبّقه.</span></button>
+<button class="it" data-i="4"><b>يرتّب</b><span>ينظّم المجلدات والملفات حسب قاعدتك.</span></button>
+<button class="it" data-i="5"><b>يؤتمت</b><span>ينجز المهام المتكررة بنص أو أداة صغيرة.</span></button>
+</div>
+<div class="ex"><small>مثال على الطلب</small><span id="exCap">«أبي صفحة تعريفية لمشروعي بالعربي فيها نموذج تواصل».</span></div>
+</div></div></div></section>
+
+<!-- ========== المحور ٤ ========== -->
+<section class="sl" id="c4" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">المحور ٤ من ٧ · أماكن التشغيل</div>
+<h2>وين <em>تستخدمينه</em>؟</h2>
+<div class="cols">
+<div class="stage" data-scene="devices"><span class="tagc">مجسم: أجهزة التشغيل</span><div class="hint">اسحبي للتدوير · اضغطي على جهاز</div></div>
+<div class="info">
+<p>يتوفر كلود كود في أكثر من واجهة تناسب أسلوب عملك. اختاري ما يريحك، والفكرة نفسها في كل مكان.</p>
+<div class="items">
+<button class="it on" data-i="0"><b>الطرفية (Terminal)</b><span>الواجهة الأصلية: تكتبين طلبك في سطر الأوامر داخل مجلد المشروع.</span></button>
+<button class="it" data-i="1"><b>محرر الأكواد</b><span>إضافات لمحررات مثل VS Code تعرض التعديلات داخل المحرر.</span></button>
+<button class="it" data-i="2"><b>الويب والسحابة</b><span>تشغيل من المتصفح دون تجهيز كبير على جهازك.</span></button>
+<button class="it" data-i="3"><b>الجوال</b><span>متابعة مهامك وإرسال الطلبات من الهاتف.</span></button>
+</div>
+<p class="note">توفّر كل واجهة وطريقة التثبيت يتغيران مع الوقت. المرجع الدقيق هو التوثيق الرسمي لكلود كود.</p>
+</div></div></div></section>
+
+<!-- ========== المحور ٥ ========== -->
+<section class="sl" id="c5" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">المحور ٥ من ٧ · الصلاحيات والأمان</div>
+<h2>أنتِ <em>صاحبة القرار</em></h2>
+<div class="cols">
+<div class="stage" data-scene="lock"><span class="tagc">مجسم: حماية المشروع</span><div class="hint">اسحبي للتدوير · اضغطي على عنصر أمان</div></div>
+<div class="info">
+<p>الثقة في الأداة تأتي من التحكم. كلود كود مصمم ليطلب موافقتك قبل الإجراءات المهمة، ومسؤوليتك مراجعة ما يقترحه.</p>
+<div class="items">
+<button class="it on" data-i="0"><b>الإذن قبل التنفيذ</b><span>يطلب موافقتك قبل تعديل ملف أو تشغيل أمر. اقرئي قبل أن توافقي.</span></button>
+<button class="it" data-i="1"><b>نطاق المجلد</b><span>اعملي داخل مجلد المشروع فقط، ولا تفتحيه على مجلدات شخصية.</span></button>
+<button class="it" data-i="2"><b>البيانات الحساسة</b><span>لا تكتبين كلمات سر أو أرقام حسابات أو بيانات شخصية في الطلبات.</span></button>
+<button class="it" data-i="3"><b>مراجعتك</b><span>راجعي النتيجة بنفسك، خصوصًا الحذف والتعديلات الكبيرة.</span></button>
+<button class="it" data-i="4"><b>نسخة احتياطية</b><span>احتفظي بنسخة من ملفاتك المهمة قبل أي تعديل واسع.</span></button>
+</div></div></div></div></section>
+
+<!-- ========== المحور ٦ ========== -->
+<section class="sl" id="c6" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">المحور ٦ من ٧ · الذاكرة والأوامر</div>
+<h2>تعليمات <em>ثابتة</em> وأوامر سريعة</h2>
+<div class="cols">
+<div class="stage" data-scene="memory"><span class="tagc">مجسم: ذاكرة المشروع</span><div class="hint">اسحبي للتدوير · اضغطي على عنصر</div></div>
+<div class="info">
+<p>بدل تكرار تعليماتك في كل جلسة، اكتبيها مرة واحدة في ملف CLAUDE.md. وللتحكم في الجلسة استخدمي أوامر الشرطة المائلة.</p>
+<div class="items">
+<button class="it on" data-i="0"><b>CLAUDE.md</b><span>ملف نصي يقرأه كلود كود في بداية كل جلسة: لغتك، ألوانك، وقواعد مشروعك.</span></button>
+<button class="it" data-i="1"><b>/init</b><span>ينشئ ملف CLAUDE.md للمشروع تلقائيًا.</span></button>
+<button class="it" data-i="2"><b>/clear</b><span>يبدأ محادثة جديدة نظيفة، مفيد عند تغيير الموضوع.</span></button>
+<button class="it" data-i="3"><b>/compact</b><span>يختصر المحادثة الطويلة لتوفير مساحة السياق.</span></button>
+<button class="it" data-i="4"><b>/model</b><span>يتيح اختيار النموذج المستخدم في الجلسة.</span></button>
+</div>
+<div class="ex"><small>مثال على محتوى CLAUDE.md</small>اللغة: عربي من اليمين لليسار. الألوان: بيج وأحمر وأخضر زيتي. لا تحذف أي ملف بدون سؤالي.</div>
+</div></div></div></section>
+
+<!-- ========== المحور ٧ ========== -->
+<section class="sl" id="c7" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">المحور ٧ من ٧ · المزايا المتقدمة</div>
+<h2>لما <em>تتمكنين</em> من الأساس</h2>
+<div class="cols">
+<div class="stage" data-scene="network"><span class="tagc">مجسم: منظومة الأدوات</span><div class="hint">اسحبي للتدوير · اضغطي على ميزة</div></div>
+<div class="info">
+<p>بعد إتقان الأساسيات تفتح لك هذه المزايا آفاقًا أوسع في الأتمتة والتكامل.</p>
+<div class="items">
+<button class="it on" data-i="0"><b>MCP</b><span>بروتوكول يربط كلود كود بتطبيقاتك وخدماتك الخارجية.</span></button>
+<button class="it" data-i="1"><b>الوكلاء الفرعيون</b><span>مساعدون متخصصون يوزّع عليهم المهمة الكبيرة لتُنجز بالتوازي.</span></button>
+<button class="it" data-i="2"><b>المهارات (Skills)</b><span>تعليمات جاهزة لمهمة معينة يعيد استخدامها كلما احتاجها.</span></button>
+<button class="it" data-i="3"><b>الخطافات (Hooks)</b><span>أوامر تعمل تلقائيًا عند حدث معين، مثل بعد حفظ ملف.</span></button>
+<button class="it" data-i="4"><b>وضع التخطيط</b><span>يعرض خطة كاملة للمراجعة قبل أن يكتب أي سطر.</span></button>
+</div></div></div></div></section>
+
+<!-- ========== مشاهد حقيقية ========== -->
+<section class="sl" id="s-scenes" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">مشاهد من الجلسات</div>
+<h2>كيف تبدو <em>جلسة حقيقية</em>؟</h2>
+<p class="lead">ثلاثة مشاهد تحاكي شكل جلسة العمل: طلبك، تفكير الأداة، طلب الإذن، ثم النتيجة. اختاري مشهدًا واضغطي إعادة العرض.</p>
+<div class="tabs" id="scTabs"><button class="tab on" data-k="0">بناء صفحة</button><button class="tab" data-k="1">إصلاح خطأ</button><button class="tab" data-k="2">ترتيب ملفات</button><button class="tab" id="replay">↻ إعادة العرض</button></div>
+<div class="term"><div class="th"><i></i><i></i><i></i><span id="termTitle">~/my-project — claude</span></div><div class="tb" id="tb"></div></div>
+<p class="note">مشهد توضيحي مبسّط لشكل الجلسة، والنص الفعلي في الأداة قد يختلف قليلًا حسب الإصدار.</p>
+</div></section>
+
+<!-- ========== سيناريوهات واقعية ========== -->
+<section class="sl" id="s-roles" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">سيناريوهات واقعية</div>
+<h2>وين يدخل في <em>شغلك اليومي</em>؟</h2>
+<div class="roles">
+<div class="role"><span class="tag">معلمة</span><h3>أداة أوراق عمل</h3><p>أداة صغيرة تولّد أسئلة تدريب لدرس معين وتعرضها بشكل منسّق قابل للطباعة.</p><div class="prompt"><small>طلب</small><p>سوّي لي صفحة تولّد ١٠ أسئلة جمع وطرح للصف الثاني وتعرضها للطباعة.</p><button class="copy" data-cp>نسخ</button></div></div>
+<div class="role"><span class="tag">إدارية</span><h3>نموذج متابعة</h3><p>صفحة تسجيل حضور أو طلبات تُجمع وتُرتّب بدل الأوراق المتفرقة.</p><div class="prompt"><small>طلب</small><p>أبي صفحة نموذج لتسجيل طلبات الأهالي فيها الاسم والجوال ونوع الطلب.</p><button class="copy" data-cp>نسخ</button></div></div>
+<div class="role"><span class="tag">مصممة</span><h3>معرض أعمال</h3><p>صفحة أنيقة تعرض مشاريعك مع نبذة عنك وروابط التواصل.</p><div class="prompt"><small>طلب</small><p>أبي صفحة معرض أعمال لمصممة فيها ٦ مشاريع ونبذة وزر تواصل بألوان هادئة.</p><button class="copy" data-cp>نسخ</button></div></div>
+<div class="role"><span class="tag">صاحبة مشروع</span><h3>صفحة حجز</h3><p>صفحة تعرض خدماتك وأسعارك وتستقبل طلبات الحجز مباشرة.</p><div class="prompt"><small>طلب</small><p>أبي صفحة خدمات لمشروعي مع جدول أسعار ونموذج حجز يوصل على إيميلي.</p><button class="copy" data-cp>نسخ</button></div></div>
 </div></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">أماكن التشغيل</div><h2>وين <em>يشتغل</em>؟</h2>
-<div class="grid g4" style="margin-top:14px"><div class="card"><h3>الطرفية</h3><p>سطر الأوامر في جهازك.</p></div><div class="card"><h3>محرر الأكواد</h3><p>داخل بيئات مثل VS Code.</p></div><div class="card"><h3>التطبيق المكتبي</h3><p>على الكمبيوتر.</p></div><div class="card"><h3>الويب والجوال</h3><p>من المتصفح أو التطبيق.</p></div></div>
-<p class="note">توفّر كل خيار يتغير مع الوقت. تأكدي من الموقع الرسمي عند التجهيز.</p></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">طريقة العمل</div><h2>كيف <em>يشتغل</em>؟</h2><p class="lead">اضغطي على كل مرحلة.</p>
-<div class="loop" id="loop"><button class="on">١ تطلبين</button><button>٢ يخطط</button><button>٣ يقرأ ويكتب</button><button>٤ يشغّل ويفحص</button><button>٥ تراجعين</button></div>
-<div class="say" id="loopTxt"></div></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">البداية</div><h2>أول <em>جلسة</em></h2>
-<div class="pt"><div><i>١</i><span><b>جهّزي مجلد للمشروع</b> فاضي أو فيه ملفاتك.</span></div><div><i>٢</i><span><b>شغّلي كلود كود داخل المجلد</b> حتى يشوف ملفاتك بس.</span></div><div><i>٣</i><span><b>اكتبي أول طلب بسيط:</b> «عرّفني على هذا المجلد».</span></div><div><i>٤</i><span><b>راجعي قبل الموافقة</b> على أي تعديل يقترحه.</span></div></div>
-<p class="note">خطوات التثبيت الحالية تلقينها في الموقع الرسمي لكلود كود.</p></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">الطلب الجيد</div><h2>اكتبي طلبك <em>بقالب من أربع أجزاء</em></h2>
-<div class="grid g4" style="margin:12px 0"><div class="card"><h3>الهدف</h3><p>وش تبين؟</p></div><div class="card"><h3>لمن</h3><p>مين يستخدمه؟</p></div><div class="card"><h3>المحتوى</h3><p>وش فيه؟</p></div><div class="card"><h3>الشكل</h3><p>ألوان ولغة واتجاه.</p></div></div>
-<div class="tabs"><button class="tab on" data-b="0">طلب ضعيف</button><button class="tab" data-b="1">طلب قوي</button></div>
-<div class="say" id="ba"></div></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">الأمان</div><h2>أنتِ <em>اللي تقررين</em></h2>
-<div class="pt"><div><i>✓</i><span>كلود كود يطلب إذنك قبل ما يعدّل ملفاتك أو يشغّل أوامر.</span></div><div><i>✓</i><span>اقري اللي يقترحه قبل ما توافقين، خصوصًا الحذف.</span></div><div><i>✓</i><span>اشتغلي داخل مجلد المشروع فقط.</span></div><div><i>!</i><span>لا تكتبين له كلمات سر أو أرقام حساب أو بيانات شخصية حساسة.</span></div></div></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">الذاكرة</div><h2>ملف <em>CLAUDE.md</em></h2>
-<p class="lead">ملف نصي في مشروعك يقرأه كلود كود في بداية كل جلسة. اكتبي فيه تعليماتك الثابتة مرة وحدة بدل ما تكرريها.</p>
-<div class="prompt"><small>مثال على محتواه</small><p>اللغة: عربي من اليمين لليسار.<br>الألوان: بيج وأحمر وأخضر زيتي.<br>لا تحذف أي ملف بدون ما تسألني.</p></div>
-<p class="note">تقدرين تطلبين منه ينشئ الملف لك بأمر /init.</p></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">أوامر مفيدة</div><h2>أوامر <em>الشرطة المائلة</em></h2><p class="lead">اضغطي على الأمر.</p>
-<div class="chips" id="chips"><button class="chip on">/help</button><button class="chip">/init</button><button class="chip">/clear</button><button class="chip">/compact</button><button class="chip">/model</button></div>
-<div class="say" id="chipTxt"></div></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">التخطيط</div><h2>وضع <em>التخطيط</em></h2>
-<p class="lead">قبل المشاريع الكبيرة اطلبي منه خطة أول، وراجعيها، وبعدين وافقي على التنفيذ. يقلل المفاجآت ويوفر وقتك.</p>
-<div class="prompt"><small>طلب مثال</small><p>قبل ما تكتب أي شي، اعرض لي خطة من خطوات لبناء (المشروع)، وانتظر موافقتي.</p><button type="button" class="copy" data-cp>نسخ</button></div></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">مزايا متقدمة</div><h2>لما <em>تتمكنين</em></h2>
-<div class="grid g2" style="margin-top:12px"><div class="card"><h3>MCP</h3><p>يربط كلود كود بتطبيقاتك وخدماتك.</p></div><div class="card"><h3>الوكلاء الفرعيون</h3><p>يوزّع المهمة على مساعدين متخصصين.</p></div><div class="card"><h3>المهارات (Skills)</h3><p>تعليمات جاهزة لمهمة معينة يعيد استخدامها.</p></div><div class="card"><h3>الخطافات (Hooks)</h3><p>أوامر تشتغل تلقائيًا عند أحداث معينة.</p></div></div></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">تعثّرتي؟</div><h2>أخطاء شائعة <em>وحلولها</em></h2>
-<div class="pt"><div><i>١</i><span><b>النتيجة مو اللي أبيها:</b> وضّحي الشكل والمحتوى بالقالب، وعدّلي خطوة خطوة.</span></div><div><i>٢</i><span><b>الجلسة طالت وتشتت:</b> ابدئي جلسة جديدة بـ /clear.</span></div><div><i>٣</i><span><b>طلب كبير جدًا:</b> قسّميه لخطوات صغيرة.</span></div><div><i>٤</i><span><b>ما فهمتي اللي سواه:</b> اطلبي منه يشرح بجمل بسيطة.</span></div></div></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">تطبيق عملي</div><h2>مشروعك <em>الأول</em></h2>
-<div class="prompt"><small>الطلب الأول</small><p>أبي صفحة تعريفية لمشروعي «(الاسم)». الهدف إن الزائرة تعرف خدماتي وتتواصل معي. المحتوى: عنوان، نبذة، ٣ خدمات، وزر واتساب. الشكل: عربي من اليمين لليسار بألوان هادئة.</p><button type="button" class="copy" data-cp>نسخ</button></div><div class="prompt"><small>التعديل</small><p>غيّر الألوان إلى (لونين)، وكبّر الخط شوي، وخلّ الأزرار مدورة.</p><button type="button" class="copy" data-cp>نسخ</button></div><div class="prompt"><small>الشرح</small><p>اشرح لي بجمل بسيطة وش الملفات اللي سويتها ووظيفة كل ملف.</p><button type="button" class="copy" data-cp>نسخ</button></div></div></section>
-<section class="sl "><div class="wrap"><div class="eyebrow mono">اختبار سريع</div><h2>اختبري <em>فهمك</em></h2>
+
+<!-- ========== أفضل الممارسات ========== -->
+<section class="sl" id="s-best" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">أفضل الممارسات</div>
+<h2>اعملي <em>باحتراف</em></h2>
+<div class="grid g2">
+<div class="card"><h3>ابدئي صغيرة</h3><p>اطلبي هيكل الصفحة أولًا ثم أضيفي التفاصيل على مراحل. التعديل التدريجي أسهل من طلب ضخم.</p></div>
+<div class="card"><h3>اكتبي بالقالب</h3><p>الهدف، لمن، المحتوى، الشكل. أربعة عناصر تحوّل الطلب الغامض إلى طلب قابل للتنفيذ.</p></div>
+<div class="card"><h3>اطلبي الخطة أولًا</h3><p>في المشاريع الكبيرة اطلبي خطة للمراجعة قبل التنفيذ لتتجنبي المفاجآت.</p></div>
+<div class="card"><h3>راجعي ما يقترحه</h3><p>لا توافقين على خطوة لا تفهمينها. اطلبي منه أن يشرحها بجمل بسيطة.</p></div>
+<div class="card"><h3>قسّمي الجلسات</h3><p>موضوع جديد؟ ابدئي بـ /clear. الجلسة الطويلة قد تتشتت، و/compact يختصرها.</p></div>
+<div class="card"><h3>احفظي نسخة</h3><p>قبل التعديلات الواسعة انسخي مجلدك. هذا أرخص تأمين تمتلكينه.</p></div>
+</div></div></section>
+
+<!-- ========== الخلاصة ========== -->
+<section class="sl" id="s-sum" data-sec="الخلاصة"><div class="wrap">
+<div class="eyebrow mono">الخلاصة</div>
+<h2>ما <em>تحتفظين به</em> من هذا العرض</h2>
+<div class="pt">
+<div><i>١</i><span><b>كلود كود يشتغل على ملفاتك</b> ويحوّل طلبك المكتوب إلى عمل منفّذ بإذنك.</span></div>
+<div><i>٢</i><span><b>الحلقة:</b> تطلبين، يخطط وينفذ ويفحص، وتراجعين. التكرار هو الطريق للنتيجة الجيدة.</span></div>
+<div><i>٣</i><span><b>جودة الطلب</b> تحدد جودة النتيجة: هدف ولمن ومحتوى وشكل.</span></div>
+<div><i>٤</i><span><b>أنتِ المتحكمة:</b> اقرئي قبل الموافقة، واعملي داخل المجلد، ولا تشاركي بيانات حساسة.</span></div>
+<div><i>٥</i><span><b>الذاكرة والأوامر:</b> CLAUDE.md للتعليمات الثابتة و/init و/clear و/compact لإدارة الجلسة.</span></div>
+<div><i>٦</i><span><b>المزايا المتقدمة</b> (MCP والوكلاء والمهارات والخطافات) تأتي بعد إتقان الأساسيات.</span></div>
+</div></div></section>
+
+<section class="sl" id="s-quiz" data-sec="الخلاصة"><div class="wrap">
+<div class="eyebrow mono">اختبار الخلاصة</div><h2>اختبري <em>فهمك</em></h2>
 <div id="quiz"></div></div></section>
-<section class="sl "><div class="wrap"><div style="text-align:center"><img src="../logo.png" alt="" style="width:92px;border-radius:50%;margin:0 auto 10px"><div class="eyebrow mono">الخاتمة</div><h2>الخلاصة</h2>
-<p class="lead" style="margin:0 auto 14px">كلود كود يشتغل على ملفاتك وينفّذ طلبك. وضوح الطلب، وفحص اللي يقترحه، والتجربة خطوة خطوة هي سر النتيجة الحلوة.</p>
-<p style="margin-bottom:16px"><a class="pill" href="../#register" style="background:var(--flower);border-color:var(--flower);color:#fff">سجّلي في «مجمع كلود كود» ← ٥٠ ريال</a></p>
-<p class="note">المعلومات عامة وتتغير المزايا مع الوقت. الموقع الرسمي هو المرجع.</p></div></div></section>
+
+<!-- ========== الفكرة ========== -->
+<section class="sl" id="s-idea" data-sec="الفكرة"><div class="wrap">
+<div class="eyebrow mono">الفكرة</div>
+<h2>من <em>فكرتك</em> إلى طلب جاهز</h2>
+<p class="lead">اختاري نوع المشروع، واملئي الحقول، وسيُبنى لك طلب كامل بالقالب تنسخينه وتستخدمينه في الجزء العملي.</p>
+<div class="chips" id="ideaChips"><button class="chip on" data-k="0">صفحة تعريفية</button><button class="chip" data-k="1">أداة حاسبة</button><button class="chip" data-k="2">نموذج تسجيل</button><button class="chip" data-k="3">عرض تفاعلي</button><button class="chip" data-k="4">معرض أعمال</button></div>
+<div class="fm">
+<div><label for="fN">اسم المشروع</label><input id="fN" value="عطر الورد"></div>
+<div><label for="fA">لمن؟ (الجمهور)</label><input id="fA" value="سيدات يحببن العطور الطبيعية"></div>
+<div class="full"><label for="fG">الهدف</label><input id="fG"></div>
+<div class="full"><label for="fC">المحتوى</label><input id="fC"></div>
+<div class="full"><label for="fS">الألوان</label><input id="fS" value="بيج وأحمر وأخضر زيتي"></div>
+</div>
+<div class="prompt"><small>طلبك الجاهز</small><p id="ideaOut"></p><button class="copy" data-cp>نسخ</button></div>
+</div></section>
+
+<!-- ========== التطبيق العملي ١ ========== -->
+<section class="sl" id="p1" data-sec="التطبيق العملي"><div class="wrap">
+<div class="eyebrow mono">التطبيق العملي · ١ من ٣</div>
+<h2><em>جهّزي</em> مكان العمل</h2>
+<div class="cols" style="grid-template-columns:1fr 1fr">
+<div><div class="pt">
+<div><i>١</i><span><b>أنشئي مجلدًا جديدًا</b> باسم مشروعك على سطح المكتب.</span></div>
+<div><i>٢</i><span><b>افتحي كلود كود داخل المجلد</b> بالطريقة التي جهزناها (طرفية أو محرر أو غيرهما).</span></div>
+<div><i>٣</i><span><b>اختبري الاتصال</b> بطلب بسيط: «عرّفني على هذا المجلد».</span></div>
+<div><i>٤</i><span><b>ألصقي طلبك الجاهز</b> من شريحة «الفكرة».</span></div>
+</div><p class="note">خطوات التثبيت الحالية في التوثيق الرسمي، وسنراجعها معًا قبل الورشة.</p></div>
+<div><h3>قائمة جاهزيتك</h3>
+<div class="checks" id="checks">
+<label><input type="checkbox"> جهاز بإنترنت ثابت</label>
+<label><input type="checkbox"> حساب جاهز لاستخدام كلود كود</label>
+<label><input type="checkbox"> مجلد للمشروع</label>
+<label><input type="checkbox"> فكرة مكتوبة بالقالب</label>
+<label><input type="checkbox"> محتوى بسيط: اسم، نبذة، ألوان</label>
+</div><div class="bar"><i id="barFill"></i></div><p class="note" id="barTxt">٠ من ٥</p></div>
+</div></div></section>
+
+<!-- ========== التطبيق العملي ٢ ========== -->
+<section class="sl" id="p2" data-sec="التطبيق العملي"><div class="wrap">
+<div class="eyebrow mono">التطبيق العملي · ٢ من ٣</div>
+<h2><em>ابني</em> مشروعك وشوفيه يتشكل</h2>
+<div class="pv">
+<div><div class="stp" id="stp">
+<button class="on"><b>١ الطلب الأول</b>هيكل الصفحة: عنوان ونبذة وثلاث خدمات.</button>
+<button><b>٢ التصميم</b>ألوان وخطوط وزوايا مدورة.</button>
+<button><b>٣ ميزة جديدة</b>نموذج تواصل يستقبل الطلبات.</button>
+<button><b>٤ النشر</b>رابط جاهز للمشاركة.</button>
+</div>
+<div class="prompt" id="stPrompt"><small id="stLabel"></small><p id="stText"></p><button class="copy" data-cp>نسخ</button></div></div>
+<div class="mock" id="mock" data-s="1"><div class="url"><span id="mUrl">index.html — معاينة محلية</span><span>●●●</span></div>
+<div class="pg"><h4>عطر الورد</h4><div style="font-size:14px;color:#555">عطور طبيعية مصنوعة يدويًا بعناية.</div>
+<div class="sv"><div>عطر ورد</div><div>عطر عود</div><div>عطر ياسمين</div></div>
+<div class="fo"><div></div><div></div><b>أرسلي طلبك</b></div><div class="ok">✓ تم النشر — المشروع متاح على رابط مباشر</div></div></div>
+</div></div></section>
+
+<!-- ========== التطبيق العملي ٣ ========== -->
+<section class="sl" id="p3" data-sec="التطبيق العملي"><div class="wrap">
+<div class="eyebrow mono">التطبيق العملي · ٣ من ٣</div>
+<h2><em>افحصي</em> وانشري</h2>
+<div class="grid g3">
+<div class="card"><h3>الفحص النهائي</h3><p>افتحي المشروع على الجوال والكمبيوتر. تأكدي من الاتجاه من اليمين لليسار، ومن عمل الأزرار والنماذج.</p></div>
+<div class="card"><h3>المراجعة الأمنية</h3><p>تأكدي أن المشروع لا يحتوي بيانات شخصية أو أرقام حسابات أو أي مفاتيح سرية قبل النشر.</p></div>
+<div class="card"><h3>النشر</h3><p>انشريه برابط تشاركينه. اطلبي من كلود كود أن يرشدك لأسهل طريقة نشر مجانية تناسب مشروعك.</p></div>
+</div>
+<div class="prompt"><small>طلب الفحص النهائي</small><p>راجع المشروع وتأكد أنه يعمل على الجوال، ومن اليمين لليسار، وأن لا توجد بيانات حساسة فيه. اكتب لي قائمة بأي ملاحظات.</p><button class="copy" data-cp>نسخ</button></div>
+<div class="prompt"><small>طلب النشر</small><p>اشرح لي خطوة بخطوة كيف أنشر هذا المشروع برابط مجاني، وانتظر موافقتي قبل أي أمر.</p><button class="copy" data-cp>نسخ</button></div>
+</div></section>
+
+<!-- ========== الختام ========== -->
+<section class="sl" id="s-end" data-sec="الختام"><div class="wrap" style="text-align:center;align-items:center">
+<img src="../logo.png" alt="" style="width:92px;border-radius:50%">
+<div class="eyebrow mono">الختام</div><h2>شكرًا لك 🌷</h2>
+<p class="lead" style="max-width:640px">ابدئي بفكرة صغيرة، واكتبي طلبك بالقالب، وراجعي كل خطوة. هكذا تتحول الأداة إلى شريك عمل حقيقي.</p>
+<p style="margin:10px 0"><a class="pill" href="../#register" style="background:var(--flower);border-color:var(--flower);color:#fff">سجّلي في «مجمع كلود كود» ← ٥٠ ريال</a></p>
+<p class="note">المعلومات عامة، وتتغير المزايا مع الوقت. الموقع الرسمي لكلود كود هو المرجع الأحدث.</p>
+</div></section>
 </main>
 <div class="nav"><button class="pill ghost" id="prev">→ <span>السابق</span></button><div class="prog"><i id="pg"></i></div><button class="pill" id="next"><span>التالي</span> ←</button></div>
 <div class="toast" id="toast">تم النسخ ✓</div>
+
 <script>
 (function(){
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const sl=$$('.sl');let cur=0;window.__slide=0;
 function go(i){i=Math.max(0,Math.min(sl.length-1,i));sl.forEach((s,k)=>s.classList.toggle('on',k===i));cur=i;window.__slide=i;
- $('#cnt').textContent=(i+1)+' / '+sl.length;$('#pg').style.width=((i+1)/sl.length*100)+'%';sl[i].scrollTop=0;
- $('#prev').style.visibility=i?'visible':'hidden';$('#next').style.visibility=i<sl.length-1?'visible':'hidden';history.replaceState(null,'','#'+(i+1))}
+ $('#cnt').textContent=(i+1)+' / '+sl.length;$('#secname').textContent=sl[i].dataset.sec||'';$('#pg').style.width=((i+1)/sl.length*100)+'%';sl[i].scrollTop=0;
+ $('#prev').style.visibility=i?'visible':'hidden';$('#next').style.visibility=i<sl.length-1?'visible':'hidden';history.replaceState(null,'','#'+sl[i].id);
+ const st=sl[i].querySelector('.stage');
+ if(window.__scenes){if(st)window.__scenes.mount(st);else window.__scenes.unmount()}
+ if(sl[i].id==='s-scenes')playScene(sc)}
+window.addEventListener('scenes-ready',()=>go(cur));
+function goId(id){const k=sl.findIndex(s=>s.id===id);if(k>=0)go(k)}
+$$('[data-go]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();goId(b.dataset.go)}));
 $('#next').onclick=()=>go(cur+1);$('#prev').onclick=()=>go(cur-1);
 addEventListener('keydown',e=>{if(e.target&&e.target.tagName==='INPUT'&&e.target.id!=='typer')return;
  if(e.key==='ArrowLeft'||e.key==='PageDown'){e.preventDefault();go(cur+1)}else if(e.key==='ArrowRight'||e.key==='PageUp'){e.preventDefault();go(cur-1)}
  else if(e.key==='Home')go(0);else if(e.key==='End')go(sl.length-1)});
 let sx=0,sy=0;addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
-addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>70&&Math.abs(dy)<50){if(cur===0&&e.target.closest&&e.target.closest('#hero')&&false)return;go(dx<0?cur+1:cur-1)}},{passive:true});
+addEventListener('touchend',e=>{if(e.target.closest&&e.target.closest('.stage,.term,input'))return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>70&&Math.abs(dy)<50)go(dx<0?cur+1:cur-1)},{passive:true});
 $('#fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()};
 const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1500)};
-$$('[data-cp]').forEach(b=>b.onclick=()=>{const t=b.parentElement.querySelector('p').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('تم نسخ الطلب ✓')).catch(()=>toast('حدّدي النص وانسخيه'))});
-$$('.flip').forEach(f=>f.onclick=()=>f.classList.toggle('on'));
-const CMP=[ '<h3>الدردشة العادية</h3><ul style="margin:8px 20px"><li>تسألين وتجاوبك بنص.</li><li>أنتِ تنسخين وتلصقين بين الدردشة وملفاتك.</li><li>ما تشوف ملفات مشروعك إلا لو أرفقتيها.</li></ul>','<h3>كلود كود</h3><ul style="margin:8px 20px"><li>يشتغل داخل مجلد مشروعك.</li><li>يقرأ الملفات ويكتب ويعدّل مباشرة بإذنك.</li><li>يشغّل ويفحص ويكمل على نفس السياق.</li></ul>'];
-function cmp(i){$('#cmp').innerHTML=CMP[i];$$('[data-t]').forEach(b=>b.classList.toggle('on',+b.dataset.t===i))}
-$$('[data-t]').forEach(b=>b.onclick=()=>cmp(+b.dataset.t));cmp(0);
-const LP=['أنتِ تكتبين طلبك بالعربي: «أبي صفحة تعريفية لمشروعي».','كلود كود يضع خطة ويحدد الملفات اللي بيكتبها أو يعدلها.','يقرأ ملفات المشروع ويكتب الكود ويعدّل عليه.','يشغّل ويجرّب ويكتشف الأخطاء ويحاول يصلحها.','أنتِ تراجعين النتيجة وتطلبين تعديل أو تعتمدين.'];
-function lp(i){$$('#loop button').forEach((b,k)=>b.classList.toggle('on',k===i));$('#loopTxt').textContent=LP[i]}
-$$('#loop button').forEach((b,k)=>b.onclick=()=>lp(k));lp(0);
-const BA=['«سوّي لي موقع».<br><small class="note">غامض: وش النوع؟ ولمن؟ وبأي شكل؟</small>','«أبي صفحة تعريفية لمشروعي (الاسم) لعميلات يبون يحجزون. فيها عنوان ونبذة و٣ خدمات وزر واتساب. عربي من اليمين لليسار بألوان هادئة».<br><small class="note">واضح: هدف، جمهور، محتوى، شكل.</small>'];
-function ba(i){$('#ba').innerHTML=BA[i];$$('[data-b]').forEach(b=>b.classList.toggle('on',+b.dataset.b===i))}
-$$('[data-b]').forEach(b=>b.onclick=()=>ba(+b.dataset.b));ba(0);
-const CH={'/help':'يعرض لك الأوامر المتاحة والمساعدة.','/init':'ينشئ ملف CLAUDE.md للمشروع.','/clear':'يبدأ محادثة جديدة نظيفة.','/compact':'يختصر المحادثة الطويلة لتوفير المساحة.','/model':'يتيح لك اختيار النموذج المستخدم.'};
-function ch(k){$$('#chips .chip').forEach(c=>c.classList.toggle('on',c.textContent===k));$('#chipTxt').textContent=CH[k]}
-$$('#chips .chip').forEach(c=>c.onclick=()=>ch(c.textContent));ch('/help');
-const Q=[{q:'وش الفرق الأساسي لكلود كود؟',o:['يشتغل على ملفات مشروعك مباشرة','يجاوب بس بالنص','يشتغل بدون إنترنت'],a:0},
-{q:'قبل ما يعدّل ملفاتك، وش المفروض تسوين؟',o:['توافقين بدون قراءة','تراجعين اللي يقترحه','تقفلين الجهاز'],a:1},
-{q:'وش فايدة ملف CLAUDE.md؟',o:['يحفظ تعليماتك الثابتة للمشروع','يرسم الصور','يسرّع الإنترنت'],a:0}];
-let qi=0,sc=0;
-function rq(){const z=$('#quiz');if(qi>=Q.length){z.innerHTML='<p class="big">نتيجتك: '+sc+' من '+Q.length+(sc===Q.length?' — ما شاء الله 🌷':'')+'</p><button class="tab" id="rq">أعيدي الاختبار</button>';$('#rq').onclick=()=>{qi=0;sc=0;rq()};return}
- const q=Q[qi];z.innerHTML='<p class="lead"><b>'+(qi+1)+'. '+q.q+'</b></p>'+q.o.map((t,k)=>'<button class="opt" data-k="'+k+'">'+t+'</button>').join('');
- $$('#quiz .opt').forEach(b=>b.onclick=()=>{const k=+b.dataset.k;if(k===q.a)sc++;$$('#quiz .opt').forEach(x=>{x.disabled=true;if(+x.dataset.k===q.a)x.classList.add('ok');else if(x===b)x.classList.add('no')});setTimeout(()=>{qi++;rq()},900)})}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-cp]');if(!b)return;const t=b.parentElement.querySelector('p').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('تم نسخ الطلب ✓')).catch(()=>toast('حدّدي النص وانسخيه'))});
+/* items -> 3D focus */
+$$('.sl').forEach(s=>{const its=[...s.querySelectorAll('.it')];if(!its.length)return;
+ its.forEach(b=>b.addEventListener('click',()=>{its.forEach(x=>x.classList.toggle('on',x===b));window.__scenes&&window.__scenes.focusItem(+b.dataset.i);
+  if(s.id==='c3')$('#exCap').textContent=EX[+b.dataset.i]}));});
+const EX=['«أبي صفحة تعريفية لمشروعي بالعربي فيها نموذج تواصل».','«غيّر الألوان إلى الأخضر وكبّر الخط شوي».','«اشرح لي هذا الملف كأني ما أعرف برمجة».','«الزر ما يشتغل لما أضغط عليه، دوّر على السبب وأصلحه».','«رتّب ملفات المجلد حسب النوع ولا تحذف أي ملف».','«حوّل هذه القائمة إلى جدول منسّق جاهز للطباعة».'];
+/* terminal scenes */
+const SC=[
+ {t:'~/perfume-site — claude',l:[['u','> أبي صفحة تعريفية لمشروعي «عطر الورد»، فيها ٣ منتجات وزر واتساب.'],['a','● I\'ll build a single RTL Arabic page: hero, three product cards, WhatsApp button.'],['t','● Write(index.html)'],['t','  └ Create index.html (118 lines)'],['q','  Do you want to create index.html?\n  ❯ 1. Yes    2. No'],['u','> 1'],['ok','✓ Created index.html'],['a','● Done. Open index.html in your browser to preview. Want me to adjust the colors?']]},
+ {t:'~/perfume-site — claude',l:[['u','> الزر ما يشتغل لما أضغط عليه.'],['t','● Read(index.html)'],['a','● Found it: the button id is "send-btn" but the script looks for "sendBtn".'],['t','● Update(index.html)'],['q','  Do you want to make this edit to index.html?\n  ❯ 1. Yes    2. No'],['u','> 1'],['ok','✓ Fixed. Click the button again to test.']]},
+ {t:'~/my-files — claude',l:[['u','> رتّب ملفات هذا المجلد حسب النوع ولا تحذف أي ملف.'],['t','● List(.)  └ 24 files found'],['a','● I\'ll create folders images/ docs/ sheets/ and move the files. Nothing will be deleted.'],['q','  Do you want to run: mkdir images docs sheets && mv ...?\n  ❯ 1. Yes    2. No'],['u','> 1'],['ok','✓ Moved 24 files into 3 folders. No files were deleted.']]}
+];
+let sc=0,tmr=[],run=0;
+function playScene(k){sc=k;run++;const my=run;tmr.forEach(clearTimeout);tmr=[];const tb=$('#tb');tb.innerHTML='';$('#termTitle').textContent=SC[k].t;
+ $$('#scTabs [data-k]').forEach(b=>b.classList.toggle('on',+b.dataset.k===k));
+ let delay=0;SC[k].l.forEach(([c,txt])=>{const el=document.createElement('span');el.className='tl-'+c;el.setAttribute('dir','auto');
+  if(c==='u'){tmr.push(setTimeout(()=>{if(my!==run)return;tb.appendChild(el);let i=0;(function ty(){if(my!==run)return;el.textContent=txt.slice(0,++i);tb.scrollTop=tb.scrollHeight;if(i<txt.length)tmr.push(setTimeout(ty,22))})()},delay));delay+=txt.length*22+500}
+  else{tmr.push(setTimeout(()=>{if(my!==run)return;el.textContent=txt;tb.appendChild(el);tb.scrollTop=tb.scrollHeight},delay));delay+=700}});}
+$$('#scTabs [data-k]').forEach(b=>b.onclick=()=>playScene(+b.dataset.k));$('#replay').onclick=()=>playScene(sc);
+/* idea builder */
+const ID=[{t:'صفحة تعريفية',g:'أن تعرف الزائرة خدماتي وتتواصل معي',c:'عنوان، نبذة قصيرة، ٣ منتجات، وزر واتساب'},{t:'أداة حاسبة',g:'أن تحسب المستخدمة النتيجة بسرعة',c:'خانات إدخال، زر «احسبي»، ونتيجة واضحة قابلة للنسخ'},{t:'نموذج تسجيل',g:'استقبال طلبات التسجيل في مكان واحد',c:'الاسم والجوال والإيميل ونوع الطلب مع رسالة تأكيد'},{t:'عرض تفاعلي',g:'شرح الموضوع بشرائح قابلة للتنقل',c:'١٠ شرائح بعناوين ونقاط مختصرة وشريط تقدم'},{t:'معرض أعمال',g:'عرض أعمالي بشكل احترافي',c:'٦ مشاريع مع صور ونبذة عني وزر تواصل'}];
+let ik=0;
+function out(){const d=ID[ik];$('#ideaOut').textContent='أبي '+d.t+' باسم «'+$('#fN').value+'». الهدف: '+$('#fG').value+'. لمن: '+$('#fA').value+'. المحتوى: '+$('#fC').value+'. الشكل: عربي من اليمين لليسار بألوان '+$('#fS').value+'.'}
+function pick(k){ik=k;$$('#ideaChips .chip').forEach((c,i)=>c.classList.toggle('on',i===k));$('#fG').value=ID[k].g;$('#fC').value=ID[k].c;out()}
+$$('#ideaChips .chip').forEach((c,i)=>c.onclick=()=>pick(i));['fN','fG','fA','fC','fS'].forEach(i=>$('#'+i).addEventListener('input',out));pick(0);
+/* checklist */
+const cks=$$('#checks input');cks.forEach(c=>c.onchange=()=>{const n=cks.filter(x=>x.checked).length;cks.forEach(x=>x.parentElement.classList.toggle('done',x.checked));$('#barFill').style.width=(n/cks.length*100)+'%';$('#barTxt').textContent=n+' من '+cks.length+(n===cks.length?' — جاهزة 🌷':'')});
+/* build stepper */
+const ST=[['الطلب الأول','أبي صفحة تعريفية لمشروعي «عطر الورد». الهدف: أن تعرف الزائرة منتجاتي وتتواصل معي. المحتوى: عنوان ونبذة و٣ منتجات. عربي من اليمين لليسار.'],['التعديل','غيّر الألوان إلى البيج والأحمر والأخضر الزيتي، وخلّ البطاقات بزوايا مدورة، وكبّر الخط شوي.'],['إضافة ميزة','أضف نموذج تواصل فيه الاسم والجوال ورسالة، وزر «أرسلي طلبك» بنفس ألوان الصفحة.'],['النشر','اشرح لي خطوة بخطوة كيف أنشر المشروع برابط مجاني، وانتظر موافقتي قبل أي أمر.']];
+function bs(i){$$('#stp button').forEach((b,k)=>b.classList.toggle('on',k===i));$('#stLabel').textContent=ST[i][0];$('#stText').textContent=ST[i][1];$('#mock').dataset.s=i+1;$('#mUrl').textContent=i===3?'https://اسمك.github.io/مشروعي':'index.html — معاينة محلية'}
+$$('#stp button').forEach((b,k)=>b.onclick=()=>bs(k));bs(0);
+/* quiz */
+const Q=[{q:'ما الفرق الأساسي بين كلود كود والدردشة العادية؟',o:['يشتغل على ملفات مشروعك مباشرة','يجاوب بنص فقط','يعمل بدون موافقتك'],a:0},{q:'ماذا تفعلين قبل الموافقة على تعديل يقترحه؟',o:['أوافق مباشرة','أقرأ وأفهم ما سيتغير','أغلق الجهاز'],a:1},{q:'ما فائدة ملف CLAUDE.md؟',o:['حفظ تعليماتك الثابتة للمشروع','رسم الصور','تسريع الإنترنت'],a:0},{q:'متى تستخدمين /clear؟',o:['عند البدء بموضوع جديد','لحذف المشروع','لتغيير لون الصفحة'],a:0},{q:'أي عنصر ليس من قالب الطلب؟',o:['الهدف','الشكل','كلمة السر'],a:2}];
+let qi=0,qs=0;
+function rq(){const z=$('#quiz');if(qi>=Q.length){z.innerHTML='<p class="big">نتيجتك: '+qs+' من '+Q.length+(qs===Q.length?' — ما شاء الله 🌷':'')+'</p><button class="tab" id="rq">أعيدي الاختبار</button>';$('#rq').onclick=()=>{qi=0;qs=0;rq()};return}
+ const q=Q[qi];z.innerHTML='<p class="lead"><b>'+(qi+1)+' / '+Q.length+' — '+q.q+'</b></p>'+q.o.map((t,k)=>'<button class="opt" data-k="'+k+'">'+t+'</button>').join('');
+ $$('#quiz .opt').forEach(b=>b.onclick=()=>{const k=+b.dataset.k;if(k===q.a)qs++;$$('#quiz .opt').forEach(x=>{x.disabled=true;if(+x.dataset.k===q.a)x.classList.add('ok');else if(x===b)x.classList.add('no')});setTimeout(()=>{qi++;rq()},900)})}
 rq();
-const h=parseInt(location.hash.slice(1));go(h>0?h-1:0);
+const h=location.hash.slice(1);const hi=sl.findIndex(s=>s.id===h);go(hi>0?hi:0);
 })();
-
+</script>
+<script type="module" src="scenes.js"></script>
+<script>
 /* ===================== Letterbloom garden ===================== */
 (function(){
 const P={bg:'#F1EBE0',flower:'#D9472B',stem:'#5E6B4E',line:'#FFD3C2',type:'#1E1B18',core:'#1E1B18'};
@@ -575,6 +886,7 @@ resize();requestAnimationFrame(frame);
 (document.fonts&&document.fonts.load?document.fonts.load('700 100px Amiri'):Promise.resolve()).catch(()=>{}).then(()=>{layout(true);demoTimer=setTimeout(()=>runDemo(0),RM?0:500)});
 if(!coarse)setTimeout(focusInp,50);
 })();
+
 </script>
 </body>
 </html>
