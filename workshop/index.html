@@ -262,6 +262,10 @@ html,body{height:100%;overflow:hidden}
 .cmp{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:8px;background:var(--paper);border-radius:14px;overflow:hidden}
 .cmp th,.cmp td{padding:9px 12px;border-bottom:1px solid var(--rule);text-align:start}
 .cmp th{background:var(--ink);color:var(--bg);font-weight:600}
+
+.fcols .card{margin-bottom:10px}.fcols .card h3{font-size:17px}.fcols .card p{font-size:14px}
+.ptag{display:inline-block;font-size:12px;background:var(--flower);color:#fff;border-radius:999px;padding:2px 12px;margin-bottom:8px;width:max-content}
+.fcols .prompt p{color:var(--bg);font-size:14px}.fcols .prompt{padding:10px 14px}.fsteps{list-style:arabic-indic;margin:0 0 6px;padding-inline-start:22px;font-size:14.5px;line-height:1.9;color:#3a352f}
 @media (max-width:860px){.cols,.pv,.tocg,.roles,.fm{grid-template-columns:1fr}.stage{min-height:340px}.sl{padding-inline:16px}.secname{display:none}.nav .pill span{display:none}}
 @media (prefers-reduced-motion:reduce){.sl{transition:none}}
 </style>
@@ -299,8 +303,8 @@ html,body{height:100%;overflow:hidden}
 <p class="lead">اضغطي على أي قسم للانتقال إليه مباشرة.</p>
 <div class="tocg">
 <button data-go="s-intro"><b>١</b><span>المقدمة<small>لماذا كلود كود؟ ولمن؟</small></span></button>
-<button class="wide" data-go="c1"><b>٢</b><span>المحتوى — سبعة محاور بمجسمات ثلاثية الأبعاد<small>اسحبي المجسم لتدويره واضغطي على أي عنصر لشرحه</small>
-<div class="subs"><a data-go="c1">التعريف</a><a data-go="c2">آلية العمل</a><a data-go="c3">القدرات</a><a data-go="c4">أماكن التشغيل</a><a data-go="c5">الأمان</a><a data-go="c6">الذاكرة والأوامر</a><a data-go="c7">المزايا المتقدمة</a><a data-go="s-scenes">مشاهد حقيقية من الجلسات</a><a data-go="s-roles">سيناريوهات واقعية</a><a data-go="s-best">أفضل الممارسات</a></div></span></button>
+<button class="wide" data-go="c1"><b>٢</b><span>المحتوى — سبعة محاور + خمس فئات (نظري وعملي)<small>اسحبي المجسم لتدويره واضغطي على أي عنصر لشرحه</small>
+<div class="subs"><a data-go="c1">التعريف</a><a data-go="c2">آلية العمل</a><a data-go="c3">القدرات</a><a data-go="c4">أماكن التشغيل</a><a data-go="c5">الأمان</a><a data-go="c6">الذاكرة والأوامر</a><a data-go="c7">المزايا المتقدمة</a><a data-go="s-scenes">مشاهد حقيقية من الجلسات</a><a data-go="s-roles">سيناريوهات واقعية</a><a data-go="r-teacher">المعلمة</a><a data-go="r-designer">المصممة</a><a data-go="r-admin">الإدارية</a><a data-go="r-student">الطالبة</a><a data-go="r-family">الأسر المنتجة</a><a data-go="s-best">أفضل الممارسات</a></div></span></button>
 <button data-go="s-sum"><b>٣</b><span>الخلاصة<small>أهم ما تحتفظين به + اختبار قصير</small></span></button>
 <button data-go="s-idea"><b>٤</b><span>الفكرة<small>اختاري فكرة مشروعك وحوّليها إلى طلب</small></span></button>
 <button data-go="p1"><b>٥</b><span>التطبيق العملي<small>التجهيز، البناء مع معاينة حية، النشر</small></span></button>
@@ -445,6 +449,52 @@ html,body{height:100%;overflow:hidden}
 <div class="role"><span class="tag">إدارية</span><h3>نموذج متابعة</h3><p>صفحة تسجيل حضور أو طلبات تُجمع وتُرتّب بدل الأوراق المتفرقة.</p><div class="prompt"><small>طلب</small><p>أبي صفحة نموذج لتسجيل طلبات الأهالي فيها الاسم والجوال ونوع الطلب.</p><button class="copy" data-cp>نسخ</button></div></div>
 <div class="role"><span class="tag">مصممة</span><h3>معرض أعمال</h3><p>صفحة أنيقة تعرض مشاريعك مع نبذة عنك وروابط التواصل.</p><div class="prompt"><small>طلب</small><p>أبي صفحة معرض أعمال لمصممة فيها ٦ مشاريع ونبذة وزر تواصل بألوان هادئة.</p><button class="copy" data-cp>نسخ</button></div></div>
 <div class="role"><span class="tag">صاحبة مشروع</span><h3>صفحة حجز</h3><p>صفحة تعرض خدماتك وأسعارك وتستقبل طلبات الحجز مباشرة.</p><div class="prompt"><small>طلب</small><p>أبي صفحة خدمات لمشروعي مع جدول أسعار ونموذج حجز يوصل على إيميلي.</p><button class="copy" data-cp>نسخ</button></div></div>
+</div></div></section>
+
+
+<section class="sl" id="r-teacher" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">الفئات ١ من ٥ · المعلمة</div>
+<h2>من التحضير اليدوي إلى <em>أدوات تعليمية</em> جاهزة</h2>
+<p class="lead">المعلمة تقضي ساعات في إعداد أوراق العمل والاختبارات والتقارير. كلود كود يحوّل هذه المهام المتكررة إلى أدوات صغيرة تعيدين استخدامها كل فصل.</p>
+<div class="cols fcols">
+<div class="info"><div class="ptag">الجانب النظري</div><div class="card"><h3>أين يوفّر وقتك؟</h3><p>توليد أسئلة متدرجة الصعوبة، بناء بطاقات مراجعة، إعداد جداول متابعة للطالبات، وصياغة تقارير ملاحظات بنبرة مهنية.</p></div><div class="card"><h3>المفهوم الأساسي</h3><p>كل أداة تبنينها تبقى ملفًا عندك. تفتحينها في أي وقت بدون إنترنت وتعدّلينها بجملة واحدة.</p></div><div class="card"><h3>انتبهي</h3><p>لا تضعين أسماء الطالبات الحقيقية أو درجاتهن في طلباتك. استخدمي بيانات تجريبية ثم أدخلي البيانات الفعلية على جهازك فقط.</p></div></div>
+<div class="info"><div class="ptag">التطبيق العملي</div><ol class="fsteps"><li>افتحي مجلدًا جديدًا باسم «أدواتي» وشغّلي كلود كود فيه.</li><li>اكتبي طلب الأداة بالقالب: الهدف، الصف، المحتوى، الشكل.</li><li>اطلبي «شغّل الصفحة وتحقق أنها تعمل» ثم جرّبيها.</li><li>عدّلي بجملة: «كبّري الخط» أو «أضيفي خيار الطباعة».</li></ol><div class="prompt"><small>طلب ١</small><p>سوّي لي صفحة تولّد ١٠ أسئلة جمع وطرح للصف الثاني الابتدائي بثلاث مستويات صعوبة، بخط كبير وزر طباعة، وبألوان هادئة.</p><button class="copy" data-cp>نسخ</button></div><div class="prompt"><small>طلب ٢</small><p>أبي بطاقات مراجعة تفاعلية لدرس الحروف: تظهر الكلمة وتقلب البطاقة لتظهر الصورة المعبّرة، مع زر التالي.</p><button class="copy" data-cp>نسخ</button></div><div class="prompt"><small>طلب ٣</small><p>سوّي جدول متابعة للمهارات لكل طالبة بأسماء تجريبية، فيه خانة إتقان ومحاولة وملاحظة، مع إمكانية الطباعة.</p><button class="copy" data-cp>نسخ</button></div></div>
+</div></div></section>
+
+<section class="sl" id="r-designer" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">الفئات ٢ من ٥ · المصممة</div>
+<h2>اجعلي <em>التصميم</em> يتحرك ويُنشر بروابط</h2>
+<p class="lead">المصممة تملك الذوق، وكلود كود يملك سرعة التنفيذ. تتحول تصاميمك إلى صفحات حية ومعارض أعمال وقوالب قابلة للمشاركة بدون تعلّم برمجة.</p>
+<div class="cols fcols">
+<div class="info"><div class="ptag">الجانب النظري</div><div class="card"><h3>أين يضيف قيمة؟</h3><p>معرض أعمال بدومين، صفحة هبوط للعميل، عروض تقديمية تفاعلية، ومعاينة التصميم على الجوال والكمبيوتر.</p></div><div class="card"><h3>المفهوم الأساسي</h3><p>وصف الهوية البصرية يعمل كتعليمات ثابتة: الألوان، الخطوط، المسافات. تكتبينها مرة في ملف CLAUDE.md ويلتزم بها في كل صفحة.</p></div><div class="card"><h3>انتبهي</h3><p>لا تطلبين نسخ تصميم علامة معروفة أو شخصية محمية. اطلبي تصميمًا أصليًا بروح مرجعك لا بنسخه.</p></div></div>
+<div class="info"><div class="ptag">التطبيق العملي</div><ol class="fsteps"><li>اكتبي هويتك في ملف: ألوان بأرقامها، خطان، نبرة الصياغة.</li><li>اطلبي الصفحة وحدّدي الأقسام واحدًا واحدًا.</li><li>اطلبي معاينة الجوال والتأكد من وضوح النصوص العربية.</li><li>انشري الصفحة على GitHub Pages وأرسلي الرابط للعميل.</li></ol><div class="prompt"><small>طلب ١</small><p>أنشئي ملف CLAUDE.md فيه هويتي: لون أساسي #D9472B، خلفية #F1EBE0، خط أميري للعناوين وIBM Plex Sans Arabic للنص، وقواعد مسافات ثابتة.</p><button class="copy" data-cp>نسخ</button></div><div class="prompt"><small>طلب ٢</small><p>سوّي صفحة معرض أعمال لمصممة فيها ٦ مشاريع بشبكة أنيقة ونافذة تكبير للصورة ونبذة وزر تواصل بألوان هادئة.</p><button class="copy" data-cp>نسخ</button></div><div class="prompt"><small>طلب ٣</small><p>راجعي الصفحة على شاشة جوال صغيرة وأصلحي أي نص عربي مقصوص أو متداخل واقترحي تحسينات للتباعد.</p><button class="copy" data-cp>نسخ</button></div></div>
+</div></div></section>
+
+<section class="sl" id="r-admin" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">الفئات ٣ من ٥ · الإدارية</div>
+<h2>أوراق أقل ومتابعة <em>أدق</em></h2>
+<p class="lead">العمل الإداري يقوم على النماذج والسجلات والمخاطبات. كلود كود يحوّلها إلى نماذج إلكترونية وجداول مرتبة وصياغات رسمية جاهزة.</p>
+<div class="cols fcols">
+<div class="info"><div class="ptag">الجانب النظري</div><div class="card"><h3>أين يوفّر وقتك؟</h3><p>نموذج طلبات الأهالي، سجل حضور وانصراف، جدول مناوبة، صياغة خطاب رسمي، وتلخيص محضر الاجتماع في نقاط.</p></div><div class="card"><h3>المفهوم الأساسي</h3><p>القالب الثابت. اكتبي خطابًا نموذجيًا مرة واحدة واطلبي منه ملء الحقول كل مرة لتتجنبي إعادة الكتابة.</p></div><div class="card"><h3>انتبهي</h3><p>بيانات الطالبات والأهالي حساسة. لا ترفعينها في الطلب ولا تنشرين صفحة تجمع بيانات بدون موافقة الإدارة.</p></div></div>
+<div class="info"><div class="ptag">التطبيق العملي</div><ol class="fsteps"><li>حدّدي المهمة المتكررة الأكثر استهلاكًا لوقتك.</li><li>اكتبي الحقول المطلوبة وشكل المخرج النهائي.</li><li>اختبري بأسماء وهمية قبل أي استخدام فعلي.</li><li>احفظي النسخة النهائية في مجلد واضح الاسم.</li></ol><div class="prompt"><small>طلب ١</small><p>أبي صفحة نموذج لتسجيل طلبات الأهالي فيها الاسم والجوال ونوع الطلب وملاحظات، مع رسالة شكر بعد الإرسال وتصدير الطلبات في ملف.</p><button class="copy" data-cp>نسخ</button></div><div class="prompt"><small>طلب ٢</small><p>اكتبي لي قالب خطاب رسمي لإبلاغ ولي الأمر بموعد اجتماع، فيه حقول قابلة للتبديل: الاسم والتاريخ والمكان، بصياغة مهذبة ومختصرة.</p><button class="copy" data-cp>نسخ</button></div><div class="prompt"><small>طلب ٣</small><p>لخّصي لي محضر الاجتماع الآتي في ٥ نقاط وقرارات ومسؤول لكل قرار وموعد التنفيذ. (الصقي هنا نص المحضر التجريبي)</p><button class="copy" data-cp>نسخ</button></div></div>
+</div></div></section>
+
+<section class="sl" id="r-student" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">الفئات ٤ من ٥ · الطالبة</div>
+<h2>ذاكري <em>بذكاء</em> وابني مشاريعك</h2>
+<p class="lead">الطالبة تستفيد من كلود كود كمعلم خصوصي يشرح ببساطة ويبني معها مشروع تخرج أو بحثًا أو أداة مذاكرة، بشرط أن تتعلم هي أثناء ذلك.</p>
+<div class="cols fcols">
+<div class="info"><div class="ptag">الجانب النظري</div><div class="card"><h3>أين يفيدك؟</h3><p>شرح الدروس بأمثلة، بناء اختبارات ذاتية، جداول مذاكرة، تنظيم ملفات البحث، وبناء مشروع تخرج صغير.</p></div><div class="card"><h3>المفهوم الأساسي</h3><p>اطلبي «اشرح لي ثم اسألني» بدل «أعطني الحل». الفهم يبقى والحل الجاهز يُنسى.</p></div><div class="card"><h3>انتبهي</h3><p>الالتزام بقواعد النزاهة الأكاديمية في مدرستك أو جامعتك. استخدميه للتعلم والمراجعة لا لتسليم عمل لم تفهميه.</p></div></div>
+<div class="info"><div class="ptag">التطبيق العملي</div><ol class="fsteps"><li>اذكري المادة والمستوى والدرس.</li><li>اطلبي شرحًا بمثال واحد ثم ٣ أسئلة تدريب.</li><li>أجيبي وصحّحي بمساعدته مع طلب التعليل.</li><li>اطلبي ملخصًا في بطاقات تراجعين بها قبل الاختبار.</li></ol><div class="prompt"><small>طلب ١</small><p>اشرحي لي درس الكسور للصف السادس بمثالين من الحياة اليومية، ثم اسأليني ٥ أسئلة واحدًا واحدًا وصحّحي إجابتي مع التعليل.</p><button class="copy" data-cp>نسخ</button></div><div class="prompt"><small>طلب ٢</small><p>سوّي لي جدول مذاكرة لمدة ٣ أسابيع قبل الاختبارات لـ ٤ مواد، مع راحة يومية ومراجعة أسبوعية، بصفحة قابلة للطباعة.</p><button class="copy" data-cp>نسخ</button></div><div class="prompt"><small>طلب ٣</small><p>أنا أعمل على مشروع تخرج عن إعادة التدوير. اقترحي لي هيكلًا للبحث وصفحة عرض بسيطة، وسأكتب المحتوى بنفسي.</p><button class="copy" data-cp>نسخ</button></div></div>
+</div></div></section>
+
+<section class="sl" id="r-family" data-sec="المحتوى"><div class="wrap">
+<div class="eyebrow mono">الفئات ٥ من ٥ · الأسر المنتجة</div>
+<h2>حوّلي مشروعك البيتي إلى <em>متجر</em> منظم</h2>
+<p class="lead">الأسرة المنتجة تحتاج حضورًا احترافيًا بأقل تكلفة: كتالوج منتجات، قائمة أسعار، طلبات منظمة، وصفحة تُرسل في واتساب وتيك توك.</p>
+<div class="cols fcols">
+<div class="info"><div class="ptag">الجانب النظري</div><div class="card"><h3>أين يضيف قيمة؟</h3><p>كتالوج رقمي للمنتجات، صفحة طلب مباشر على واتساب، حاسبة تسعير وتكلفة، وبطاقات عروض ومناسبات.</p></div><div class="card"><h3>المفهوم الأساسي</h3><p>الرابط الواحد. صفحة واحدة تجمع منتجاتك وأسعارك وزر الطلب، تضعينها في السيرة (Bio) فتختصر عليك مئات الرسائل.</p></div><div class="card"><h3>انتبهي</h3><p>لا تنشرين رقمك أو عنوان بيتك إلا بإرادتك. وراجعي متطلبات ترخيص الأسر المنتجة وعبارات الإعلان قبل النشر.</p></div></div>
+<div class="info"><div class="ptag">التطبيق العملي</div><ol class="fsteps"><li>صوّري منتجاتك وجهّزي الأسماء والأسعار والأوصاف.</li><li>اطلبي صفحة كتالوج بزر «اطلبي عبر واتساب» لكل منتج.</li><li>أضيفي حاسبة تسعير تحسب التكلفة والربح.</li><li>انشري الرابط وضعيه في تيك توك وإنستقرام وواتساب.</li></ol><div class="prompt"><small>طلب ١</small><p>أبي صفحة كتالوج لأسرة منتجة للحلويات فيها ٨ منتجات بصور وأسعار، وزر «اطلبي عبر واتساب» يرسل رسالة جاهزة باسم المنتج.</p><button class="copy" data-cp>نسخ</button></div><div class="prompt"><small>طلب ٢</small><p>سوّي حاسبة تسعير: أدخل تكلفة المكونات وعدد القطع وهامش الربح فتطلع سعر القطعة والسعر الإجمالي.</p><button class="copy" data-cp>نسخ</button></div><div class="prompt"><small>طلب ٣</small><p>سوّي بطاقة عرض لمناسبة (رمضان أو العيد) بألوان دافئة فيها اسم المنتج والسعر ومدة العرض، قابلة للحفظ كصورة.</p><button class="copy" data-cp>نسخ</button></div></div>
 </div></div></section>
 
 <!-- ========== أفضل الممارسات ========== -->
