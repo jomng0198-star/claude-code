@@ -260,6 +260,8 @@ footer img{width:56px;border-radius:50%;margin-bottom:8px}
     </div>
     <p class="err" id="err"></p>
     <button class="pill submit" type="submit" id="sendBtn">إرسال التسجيل</button>
+    <button class="pill ghost submit" type="button" id="waBtn" style="margin-top:10px;background:#25D366;border-color:#25D366;color:#fff">أو أرسلي تأكيد تسجيلك على واتساب</button>
+    <p style="margin-top:8px;font-size:13px;color:var(--taupe);text-align:center">يفتح واتساب برسالة جاهزة، أرفقي فيها صورة الإيصال.</p>
   </form>
 </section>
 
@@ -290,7 +292,7 @@ footer img{width:56px;border-radius:50%;margin-bottom:8px}
 </footer>
 
 <div class="modal" id="licModal"><div class="box"><img class="lic" src="license.jpg" alt="رخصة إعلامي – مصمم جرافيك"><p style="margin-top:10px"><button class="pill ghost" type="button" data-close>إغلاق</button></p></div></div>
-<div class="modal" id="thanks"><div class="box"><img src="logo.png" alt="" style="width:90px;border-radius:50%"><h3>وصل تسجيلك 🌷</h3><p>شكراً لك! انضمي الحين لقروب المجمع على واتساب، وفيه بننزّل موعد الدورة ورابط الدخول.</p><p style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><a class="pill" href="https://chat.whatsapp.com/Gl5I3wLNR0kHEAlnwU12nG" target="_blank" rel="noopener" style="background:#25D366;border-color:#25D366;color:#fff">انضمي لقروب واتساب</a><button class="pill ghost" type="button" data-close>إغلاق</button></p><p style="margin-top:10px;font-size:13px;color:var(--taupe)">وصلك نفس الرابط على إيميلك كمان.</p></div></div>
+<div class="modal" id="thanks"><div class="box"><img src="logo.png" alt="" style="width:90px;border-radius:50%"><h3>وصل تسجيلك 🌷</h3><p>شكراً لك! انضمي الحين لقروب المجمع على واتساب، وفيه بننزّل موعد الدورة ورابط الدخول.</p><p style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><a class="pill" href="https://chat.whatsapp.com/Gl5I3wLNR0kHEAlnwU12nG" target="_blank" rel="noopener" style="background:#25D366;border-color:#25D366;color:#fff">انضمي لقروب واتساب</a><a class="pill" id="waConfirm" href="#" target="_blank" rel="noopener" style="background:var(--ink);border-color:var(--ink)">أرسلي تأكيد التسجيل على واتساب</a><button class="pill ghost" type="button" data-close>إغلاق</button></p><p style="margin-top:10px;font-size:13px;color:var(--taupe)">وصلك نفس الرابط على إيميلك كمان.</p></div></div>
 <div class="toast" id="toast">تم النسخ ✓</div>
 
 <script>
@@ -310,6 +312,15 @@ footer img{width:56px;border-radius:50%;margin-bottom:8px}
   const base=location.href.split('#')[0].split('?')[0];
   $('#nextUrl').value=base+'?done=1#register';
   if(/[?&]done=1/.test(location.search)){$('#thanks').classList.add('on');history.replaceState(null,'',base+'#register')}
+
+  const WA='966533981274';
+  function waUrl(){
+    let n=($('#nm').value||'').trim(),ph=($('#ph').value||'').trim(),ct=($('#ct').value||'').trim();
+    try{const d=JSON.parse(sessionStorage.getItem('reg')||'{}');n=n||d.n||'';ph=ph||d.p||'';ct=ct||d.c||''}catch(e){}
+    const t='السلام عليكم، أنا '+(n||'(اسمك)')+(ph?'، جوالي: '+ph:'')+(ct?'، من '+ct:'')+'. سجّلت في دورة «مجمع كلود كود» وحوّلت ٥٠ ريال بتحويل بنكي (الراجحي). أرفقت لكم صورة الإيصال هنا.';
+    return 'https://wa.me/'+WA+'?text='+encodeURIComponent(t)}
+  $('#waBtn').addEventListener('click',()=>{window.open(waUrl(),'_blank','noopener')});
+  const wc=$('#waConfirm');if(wc)wc.addEventListener('click',()=>{wc.href=waUrl()});
   $('#regForm').addEventListener('submit',e=>{
     const err=$('#err');err.textContent='';
     const need=[['#nm','اكتبي اسمك الكامل'],['#ph','اكتبي رقم جوالك'],['#em','اكتبي بريدك الإلكتروني']];
@@ -320,6 +331,7 @@ footer img{width:56px;border-radius:50%;margin-bottom:8px}
     if(!f){e.preventDefault();err.textContent='ارفقي صورة إيصال التحويل';return}
     if(f.size>5*1024*1024){e.preventDefault();err.textContent='حجم الإيصال أكبر من ٥ ميجا، صوّريه بحجم أصغر';return}
     if(!$('#ag').checked){e.preventDefault();err.textContent='لازم توافقين على الشروط';return}
+    try{sessionStorage.setItem('reg',JSON.stringify({n:$('#nm').value.trim(),p:$('#ph').value.trim(),c:$('#ct').value.trim()}))}catch(_){}
     $('#sendBtn').textContent='جاري الإرسال…';$('#sendBtn').disabled=true;
   });
 })();
